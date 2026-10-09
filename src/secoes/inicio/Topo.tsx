@@ -1,0 +1,188 @@
+import inicio from '@/content/inicio.json';
+import comum from '@/content/comum.json';
+import { Botao, Rotulo } from '@/components/Botao';
+import { Icone } from '@/components/Icone';
+import { Palavras, contarPalavras } from '@/components/Palavras';
+import { SliderFrases } from '@/components/SliderFrases';
+
+const titulo = 'font-[family-name:var(--font-titulo)] font-black tracking-[-0.03em]';
+const vidro = 'border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_1.5rem_4rem_-1rem_rgb(0_0_0/0.6)]';
+
+/* Primeira dobra · Aura: selo, título com pílula no meio da frase, dois botões,
+   painel de foto com parallax e fragmentos de interface flutuando, abas embaixo. */
+export function Dobra() {
+  const d = inicio.dobra;
+  const n1 = contarPalavras(d.tituloAntes);
+  const n2 = n1 + 1;
+  const n3 = n2 + contarPalavras(d.tituloApagado);
+  return (
+    <section className="tema-plantao relative overflow-hidden" aria-labelledby="titulo-dobra">
+      <div className="container-site flex flex-col items-center pt-10 pb-10 text-center sm:pt-14">
+        <p data-revelar className="rotulo inline-flex items-center gap-2.5 rounded-full border border-linha-azul px-4 py-2 text-sobre-azul" style={{ background: 'var(--color-azul-noite)' }}>
+          <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: 'var(--grad-luz)' }} />
+          {d.rotulo}
+        </p>
+
+        <h1 id="titulo-dobra" data-palavras className={`${titulo} mt-6 max-w-[26ch] text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.12]`}>
+          <Palavras texto={d.tituloAntes} />{' '}
+          <span className="palavra mx-[0.08em] -translate-y-[0.06em] rounded-full px-[0.5em] py-[0.12em] align-middle text-[0.78em] whitespace-nowrap text-azul-plantao" style={{ background: 'var(--grad-luz)', ['--i' as string]: n1 }}>
+            {d.tituloSelo}
+          </span>{' '}
+          <Palavras texto={d.tituloApagado} inicio={n2} className="text-sobre-azul-3" /> <Palavras texto={d.tituloFinal} inicio={n3} />
+        </h1>
+
+        <p data-revelar className="mt-6 max-w-[62ch] text-[1.0625rem] leading-relaxed text-sobre-azul-2" style={{ ['--atraso' as string]: '0.4s' }}>{d.subtitulo}</p>
+
+        <div data-revelar className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row" style={{ ['--atraso' as string]: '0.55s' }}>
+          <Botao id="cta-dobra" href="#contato" className="w-full sm:w-auto">{comum.botaoPrincipal}</Botao>
+          <Botao href="#solucoes" variante="secundario" seta={false} className="w-full sm:w-auto">{d.botaoSecundario}</Botao>
+        </div>
+      </div>
+
+      {/* Painel de foto com parallax e fragmentos flutuantes */}
+      <div className="container-site pb-6">
+        <div data-revelar className="relative h-[380px] overflow-hidden rounded-[28px] sm:h-[480px] lg:h-[560px]" style={{ ['--atraso' as string]: '0.7s' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img data-parallax src={d.imagem} alt={d.imagemAlt} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.15), rgb(7 11 38 / 0.75))' }} />
+
+          {d.flutuantes.map((f, i) => (
+            <figure
+              key={f.titulo}
+              className={`absolute w-44 overflow-hidden rounded-2xl p-[1px] sm:w-64 lg:w-72 ${i === 0 ? 'top-[8%] left-[4%] -rotate-[4deg]' : 'top-[6%] right-[4%] hidden rotate-[3deg] sm:block'} ${vidro}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={f.imagem} alt="" loading="lazy" className="aspect-[4/3] w-full rounded-[15px] object-cover" />
+              <figcaption className="flex flex-col gap-0.5 px-3 py-2.5 text-left text-xs sm:text-sm">
+                <span className="font-semibold text-sobre-azul">{f.titulo}</span>
+                <span className="text-amarelo">{f.detalhe}</span>
+              </figcaption>
+            </figure>
+          ))}
+
+          <div className={`absolute bottom-[7%] left-1/2 w-[86%] max-w-md -translate-x-1/2 rounded-2xl p-4 text-left sm:left-[6%] sm:translate-x-0 ${vidro}`}>
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-semibold text-sobre-azul">{d.painelRotulo}</span>
+              <span className="flex items-center gap-1.5 text-sobre-azul-2">
+                <span className="size-1.5 animate-pulse rounded-full bg-amarelo" />
+                {d.painelEstado}
+              </span>
+            </div>
+            <ul className="mt-3 grid gap-2">
+              {d.chips.map((c) => (
+                <li key={c} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm text-sobre-azul">
+                  <Icone nome="check" className="size-4 text-amarelo" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 pb-6 text-sm font-medium text-sobre-azul-3" aria-label="O que fazemos">
+          {d.abas.map((a) => <li key={a}>{a}</li>)}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* Faixas inclinadas do Aura, rolando em sentidos opostos. */
+export function Faixas() {
+  const faixa = (palavras: string[], estilo: 'luz' | 'noite', giro: string, pos: string, sentido: 'a' | 'b') => {
+    const lista = [...palavras, ...palavras, ...palavras, ...palavras];
+    return (
+      <div
+        className={`absolute left-[-10%] w-[120%] py-3.5 sm:py-4 ${giro} ${pos}`}
+        style={{ background: estilo === 'luz' ? 'var(--grad-luz)' : 'var(--color-azul-noite)' }}
+      >
+        <p className={`marquee-${sentido} flex w-max font-[family-name:var(--font-titulo)] text-[clamp(1rem,2.2vw,1.5rem)] font-extrabold whitespace-nowrap ${estilo === 'luz' ? 'text-azul-plantao' : 'text-sobre-azul'}`}>
+          {lista.map((p, i) => (
+            <span key={i} className="flex shrink-0 items-center gap-6 pr-6">
+              {p}
+              <span className={`size-2 shrink-0 rounded-[2px] ${estilo === 'luz' ? 'bg-azul-plantao' : 'bg-amarelo'}`} />
+            </span>
+          ))}
+        </p>
+      </div>
+    );
+  };
+  return (
+    <div aria-hidden="true" className="relative h-40 overflow-hidden sm:h-52" style={{ background: 'var(--color-nevoa)' }}>
+      {faixa(inicio.faixa, 'luz', 'rotate-[3deg]', 'top-12 sm:top-16', 'a')}
+      {faixa(inicio.faixa2, 'noite', '-rotate-[4deg]', 'top-14 sm:top-20', 'b')}
+    </div>
+  );
+}
+
+/* Manifesto · Aura: rótulo "( … )" e frase grande centralizada, palavra por palavra. */
+export function Manifesto() {
+  const m = inicio.manifesto;
+  return (
+    <section id="quem-somos" className="tema-nevoa bloco" aria-labelledby="titulo-manifesto">
+      <div className="container-site">
+        <Rotulo className="text-center text-tinta-3">{m.rotulo}</Rotulo>
+        <h2 id="titulo-manifesto" data-palavras className={`${titulo} mx-auto mt-6 max-w-[30ch] text-center text-[clamp(1.6rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold tracking-[-0.025em]`}>
+          <Palavras texto={m.texto} />
+        </h2>
+      </div>
+    </section>
+  );
+}
+
+/* Por que a Led · Aura: cartão escuro com números que contam + cartão grande com imagem e frases. */
+export function PorQue() {
+  const p = inicio.porque;
+  return (
+    <section className="tema-nevoa pb-[var(--bloco)]" aria-label={p.rotulo}>
+      <div className="container-site">
+        <Rotulo className="text-center text-tinta-3">{p.rotulo}</Rotulo>
+        <div className="mt-8 grid gap-4 lg:grid-cols-[0.42fr_1fr]">
+          <div data-revelar className="flex flex-col justify-between gap-2 rounded-[var(--radius-painel)] p-7 text-sobre-azul sm:p-8" style={{ background: 'radial-gradient(at 30% 120%, #1A2A8A 0%, #0A1240 55%, #070B26 100%)' }}>
+            {p.numeros.map((n, i) => (
+              <div key={n.texto} className={`py-4 ${i ? 'border-t border-linha-azul' : ''}`}>
+                <p className="numeros font-[family-name:var(--font-titulo)] text-5xl leading-none font-black">
+                  <span data-contar={n.valor}>0</span>
+                  {n.sufixo}
+                </p>
+                <p className="mt-2 text-sm text-sobre-azul-2">{n.texto}</p>
+              </div>
+            ))}
+          </div>
+          <div data-revelar style={{ ['--atraso' as string]: '0.15s' }}>
+            <SliderFrases frases={p.frases} rotulo={p.sliderRotulo} imagem={p.imagem} anterior={p.anterior} proxima={p.proxima} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* O que fazemos · Aura "Outputs": linhas com área, título central e meta. */
+export function Solucoes() {
+  const s = inicio.solucoes;
+  return (
+    <section id="solucoes" className="tema-nevoa bloco" aria-labelledby="titulo-solucoes">
+      <div className="container-site">
+        <Rotulo className="text-center text-tinta-3">{s.rotulo}</Rotulo>
+        <h2 id="titulo-solucoes" data-palavras className={`${titulo} mx-auto mt-5 max-w-[20ch] text-center text-[clamp(2rem,4.6vw,3.5rem)] leading-[1.05]`}>
+          <Palavras texto={s.titulo} />
+        </h2>
+        <ul className="mx-auto mt-14 max-w-4xl border-t border-linha-clara">
+          {s.itens.map((it, i) => (
+            <li
+              key={it.titulo}
+              data-revelar
+              style={{ ['--atraso' as string]: `${i * 0.06}s` }}
+              className="group grid grid-cols-1 items-center gap-1 border-b border-linha-clara py-6 text-center transition-colors hover:bg-branco sm:grid-cols-[1fr_2fr_1fr] sm:gap-4 sm:px-4"
+            >
+              <span className="text-sm text-tinta-3 sm:text-left">{it.area}</span>
+              <span className="font-[family-name:var(--font-titulo)] text-[clamp(1.25rem,2.4vw,1.75rem)] leading-tight font-extrabold">{it.titulo}</span>
+              <span className="text-sm text-tinta-3 sm:text-right">{it.meta}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

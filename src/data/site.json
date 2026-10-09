@@ -1,0 +1,277 @@
+{
+  "empresa": {
+    "nome": "Led Marketing",
+    "cidade": "Praia Grande",
+    "uf": "SP",
+    "cnpj": "61.867.464/0001-94",
+    "whatsappExibicao": "(11) 97469-8846",
+    "whatsappNumero": "5511974698846",
+    "telefoneSchema": "+55 11 97469-8846",
+    "instagram": "https://www.instagram.com/ledmarketing.br",
+    "instagramUsuario": "@ledmarketing.br",
+    "linkedin": "https://www.linkedin.com/company/74745960",
+    "dominio": "https://ledm.com.br",
+    "cidadesAtendidas": [
+      "Bertioga",
+      "Guarujá",
+      "Santos",
+      "São Vicente",
+      "Cubatão",
+      "Praia Grande",
+      "Mongaguá",
+      "Itanhaém",
+      "Peruíbe"
+    ],
+    "cidadesFormulario": [
+      "Bertioga",
+      "Guarujá",
+      "Santos",
+      "São Vicente",
+      "Cubatão",
+      "Praia Grande",
+      "Mongaguá",
+      "Itanhaém",
+      "Peruíbe",
+      "Outra cidade"
+    ]
+  },
+  "opcoes": {
+    "mostrarPrecos": true,
+    "garantia30Dias": false,
+    "nomeMetodo": "",
+    "azulNoite": "#0A1240",
+    "fonteTitulos": "Montserrat",
+    "fonteTexto": "Inter",
+    "fotoWalter": "",
+    "fotos": {},
+    "youtube": "",
+    "facebook": "",
+    "casesProntos": false
+  },
+  "premissas": {
+    "valorUnidade": 480000,
+    "margemPercentual": 20,
+    "margemPorVenda": 96000,
+    "contatosPorMes": 40,
+    "semRespostaPercentual": 30,
+    "verbaMidia": 1500,
+    "cacheCreator": 1000
+  },
+  "calculadora": {
+    "valorUnidade": 480000,
+    "margemPercentual": 20,
+    "contatosPorMes": 40,
+    "semRespostaPercentual": 30,
+    "taxaMinimo": 0.002,
+    "taxaRealista": 0.004
+  },
+  "upgrades": [
+    {
+      "para": "rede-ativa",
+      "valor": 1800
+    },
+    {
+      "para": "nome-na-praca",
+      "valor": 1500
+    },
+    {
+      "para": "controle-total",
+      "valor": 1500
+    }
+  ],
+  "planos": [
+    {
+      "id": "plantao-digital",
+      "nome": "Plantão Digital",
+      "promessa": "O interessado e o corretor param de ficar sem resposta, e o perfil da construtora tem postagem toda semana.",
+      "paraQuem": "Construtora com unidade à venda agora, que recebe contato e não tem quem responda nem onde o corretor consulte.",
+      "herda": null,
+      "entra": [
+        {
+          "titulo": "Atendimento com IA no WhatsApp",
+          "texto": "Responde todo contato de portal, anúncio e rede social em minutos, a qualquer hora, e entrega para o corretor."
+        },
+        {
+          "titulo": "Painel do corretor",
+          "texto": "Tabela, disponibilidade e material de cada empreendimento em um link só."
+        },
+        {
+          "titulo": "Painel mensal do dono",
+          "texto": "Contatos recebidos, respondidos, origem e corretores que acessaram."
+        },
+        {
+          "titulo": "Postagens, 3 por semana",
+          "texto": "Cerca de 13 por mês no perfil da construtora, com obra, empreendimento e bastidor, sempre levando para o plantão."
+        },
+        {
+          "titulo": "Anúncios no Meta",
+          "texto": "Uma campanha de captação por empreendimento, direto para o WhatsApp do plantão, com origem medida."
+        }
+      ],
+      "conta": [
+        {
+          "origem": "Ferramenta solta desligada",
+          "minimo": 400,
+          "realista": 800
+        },
+        {
+          "origem": "Contratação evitada (tabela e atendimento)",
+          "minimo": 0,
+          "realista": 4100
+        },
+        {
+          "origem": "Contato sem resposta que passa a ser atendido",
+          "minimo": 2304,
+          "realista": 4608
+        },
+        {
+          "origem": "Anúncios no Meta, já descontada a mídia",
+          "minimo": 2820,
+          "realista": 7140
+        }
+      ],
+      "totalMinimo": 5524,
+      "totalRealista": 16648,
+      "notaConta": "",
+      "fraseConta": "Custa {{custo}} por mês. Uma única venda recuperada a cada ano e meio já devolve quase três vezes isso.",
+      "custoMensal": 1900,
+      "implantacao": 1500,
+      "prazoMinimoMeses": 6,
+      "primeiroResultado": "Na primeira semana todo contato recebe resposta em minutos, o corretor para de pedir tabela no WhatsApp e o perfil volta a ter postagem.",
+      "ficaFora": "Site e landing pages, produção de vídeo e segundo empreendimento em campanha."
+    },
+    {
+      "id": "rede-ativa",
+      "nome": "Rede Ativa",
+      "promessa": "A rede de parceiros volta a oferecer, as visitas não furam e a construtora ganha site.",
+      "paraQuem": "Construtora com 15 ou mais corretores cadastrados e poucos oferecendo de verdade, com unidade pronta parada ou sem site atualizado.",
+      "herda": "Plantão Digital",
+      "entra": [
+        {
+          "titulo": "Ativação da rede de parceiros",
+          "texto": "Comunicados para os corretores (unidade nova, mudança de tabela, material novo), reativação de quem parou de oferecer e ranking de quem está ativo."
+        },
+        {
+          "titulo": "Agendamento e confirmação de visita com IA",
+          "texto": "Marca e confirma a visita ao plantão, ao decorado e à obra, e avisa o corretor."
+        },
+        {
+          "titulo": "Site e landing pages",
+          "texto": "Site com área administrativa, onde a construtora atualiza empreendimentos, tabela e disponibilidade, e uma landing page por empreendimento."
+        }
+      ],
+      "conta": [
+        {
+          "origem": "Herdado do Plantão Digital",
+          "minimo": 5524,
+          "realista": 16648
+        },
+        {
+          "origem": "Rede de parceiros reativada",
+          "minimo": 4000,
+          "realista": 9600
+        },
+        {
+          "origem": "Visita que não fura",
+          "minimo": 2400,
+          "realista": 5760
+        }
+      ],
+      "totalMinimo": 11924,
+      "totalRealista": 32008,
+      "notaConta": "",
+      "fraseConta": "Custa {{custo}}. Uma venda a mais a cada oito meses, de corretor que hoje não te oferece, paga o plano mais de quatro vezes.",
+      "custoMensal": 2700,
+      "implantacao": 3300,
+      "prazoMinimoMeses": 6,
+      "primeiroResultado": "Em 30 dias você recebe a lista de quais corretores cadastrados abriram a tabela e quais sumiram, e o site novo entra no ar com o painel do corretor dentro dele.",
+      "ficaFora": "Evento para corretor, premiação e comissão. Sistema sob medida fora do site."
+    },
+    {
+      "id": "nome-na-praca",
+      "nome": "Nome na Praça",
+      "promessa": "A construtora ganha rosto e a base antiga volta para a conversa.",
+      "paraQuem": "Construtora que quer aparecer com gente de verdade, tem anos de contatos sem uso ou vai lançar e precisa ser lembrada.",
+      "herda": "Rede Ativa",
+      "entra": [
+        {
+          "titulo": "Creator representante",
+          "texto": "A Led seleciona, roteiriza, dirige e mede uma pessoa real que representa a construtora. O vídeo vira postagem, anúncio e material para o corretor repostar. O creator apresenta. Quem atende e negocia é o corretor credenciado."
+        },
+        {
+          "titulo": "Reativação da base",
+          "texto": "Contato antigo que esfriou e comprador que pode indicar recebem o conteúdo novo e voltam para o plantão."
+        }
+      ],
+      "conta": [
+        {
+          "origem": "Herdado do Rede Ativa",
+          "minimo": 11924,
+          "realista": 32008
+        },
+        {
+          "origem": "Creator representante, já descontado o cachê",
+          "minimo": -568,
+          "realista": 1160
+        },
+        {
+          "origem": "Base reativada",
+          "minimo": 4000,
+          "realista": 8000
+        }
+      ],
+      "totalMinimo": 15356,
+      "totalRealista": 41168,
+      "notaConta": "Sozinho, o creator não se paga no cenário conservador. Ele só se paga se trouxer pelo menos 25% mais contatos nos anúncios, e é medido contra o anúncio comum. Se não chegar a 25%, troca-se o roteiro ou o creator. Por isso ele entra junto com a reativação da base.",
+      "fraseConta": "Custa {{custo}}. Duas vendas a mais por ano pagam o plano mais de quatro vezes.",
+      "custoMensal": 3600,
+      "implantacao": 4800,
+      "prazoMinimoMeses": 6,
+      "primeiroResultado": "Em 30 dias a construtora tem um rosto e os primeiros vídeos no ar, e a base antiga recebe a primeira retomada.",
+      "ficaFora": "Cachê do creator (de R$450 a R$2.000 por mês, pago pela construtora), produção com equipe de filmagem e influenciador de grande audiência."
+    },
+    {
+      "id": "controle-total",
+      "nome": "Controle Total",
+      "promessa": "O dono enxerga e comanda a venda inteira.",
+      "paraQuem": "Construtora com dois prédios ativos ou lançamento chegando, e dono que quer sair do operacional de vendas.",
+      "herda": "Nome na Praça",
+      "entra": [
+        {
+          "titulo": "Head comercial com IA",
+          "texto": "Rotina semanal de vendas com pauta, cobrança de retorno dos corretores, alerta de unidade parada e previsão do mês."
+        },
+        {
+          "titulo": "Atendimento ao comprador com IA",
+          "texto": "Andamento da obra, segunda via, documentação e dúvidas do pós-venda sem passar pelo administrativo."
+        }
+      ],
+      "conta": [
+        {
+          "origem": "Herdado do Nome na Praça",
+          "minimo": 15356,
+          "realista": 41168
+        },
+        {
+          "origem": "Contratação evitada (coordenação e pós-venda)",
+          "minimo": 0,
+          "realista": 10500
+        },
+        {
+          "origem": "Proposta parada cobrada",
+          "minimo": 2880,
+          "realista": 5760
+        }
+      ],
+      "totalMinimo": 18236,
+      "totalRealista": 57428,
+      "notaConta": "",
+      "fraseConta": "Custa {{custo}}. Pouco mais de duas vendas a mais por ano pagam o plano mais de três vezes.",
+      "custoMensal": 4500,
+      "implantacao": 6300,
+      "prazoMinimoMeses": 12,
+      "primeiroResultado": "Na segunda semana acontece a primeira reunião de vendas com pauta pronta, sem o dono cobrar ninguém.",
+      "ficaFora": "Financeiro e contábil, contratação de corretor, mudança de marca e material impresso de lançamento."
+    }
+  ]
+}

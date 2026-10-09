@@ -1,0 +1,72 @@
+{
+  "botaoPrincipal": "Agendar apresentação",
+  "botaoSecundario": "Ver o painel funcionando",
+  "pularConteudo": "Pular para o conteúdo",
+  "menu": [
+    {
+      "rotulo": "O que fazemos",
+      "href": "/#solucoes"
+    },
+    {
+      "rotulo": "Cases",
+      "href": "/#cases"
+    },
+    {
+      "rotulo": "Como trabalhamos",
+      "href": "/#como-trabalhamos"
+    },
+    {
+      "rotulo": "Quem somos",
+      "href": "/#quem-somos"
+    },
+    {
+      "rotulo": "Dúvidas",
+      "href": "/#duvidas"
+    }
+  ],
+  "menuAbrir": "Abrir menu",
+  "menuFechar": "Fechar menu",
+  "rodape": {
+    "posicionamento": "A Led Marketing cuida do marketing de quem vende imóvel, e agora também dos sistemas e da IA que fazem a venda andar.",
+    "local": "Led Marketing. Praia Grande, SP.",
+    "privacidade": "Privacidade",
+    "navegacao": "Navegação",
+    "contato": "Contato",
+    "copyright": "© 2026 Led Marketing. CNPJ {cnpj}."
+  },
+  "formulario": {
+    "campos": {
+      "nome": "Seu nome",
+      "whatsapp": "Seu WhatsApp",
+      "empresa": "Empresa",
+      "tipo": "Tipo de empresa",
+      "cidade": "Cidade"
+    },
+    "opcional": "opcional",
+    "cidadePlaceholder": "Escolha a cidade",
+    "whatsappPlaceholder": "(00) 00000-0000",
+    "nota": "O WhatsApp abre com a mensagem pronta para você revisar e enviar. Este site não guarda seus dados.",
+    "erros": {
+      "nome": "Escreva o seu nome.",
+      "whatsapp": "Escreva o WhatsApp com DDD, no formato (00) 00000-0000.",
+      "empresa": "Escreva o nome da empresa.",
+      "tipo": "Escolha o tipo de empresa.",
+      "cidade": "Escolha a cidade."
+    },
+    "origem": "Origem: [utm_source]",
+    "tipos": [
+      "Construtora",
+      "Incorporadora",
+      "Imobiliária",
+      "Corretor autônomo",
+      "Outro"
+    ],
+    "tipoPlaceholder": "Escolha o tipo",
+    "mensagem": "Olá, Walter. Sou [nome], da [empresa] ([tipo]), em [cidade]. Quero agendar uma apresentação da Led. Meu WhatsApp: [whatsapp]."
+  },
+  "estimativa": "ESTIMATIVA",
+  "cenario": "CENÁRIO",
+  "noMinimo": "no mínimo",
+  "porMes": "por mês",
+  "botaoPrincipalCurto": "Agendar"
+}

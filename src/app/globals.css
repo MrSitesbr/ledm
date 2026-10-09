@@ -1,0 +1,295 @@
+@import 'tailwindcss';
+
+/* ══ Tokens da marca (ledm-brand v1.0 + papéis do briefing) ══════════════
+   Nomes de cor do briefing; valores do design system da LEDM.
+   Nenhuma cor é escrita direto em componente: só estas variáveis. */
+@theme {
+  /* Azuis */
+  --color-azul-plantao: #111d66;  /* primary: fundo dos blocos Plantão, texto no claro */
+  --color-azul-noite: #0a1240;    /* deep: cartões sobre o azul, fim do degradê */
+  --color-azul-fundo: #070b26;    /* bg dark: rodapé */
+  --color-azul-hover: #1a2a8a;    /* deep-hover */
+
+  /* Luz (amarelo da lâmpada) */
+  --color-amarelo: #ffcc00;       /* brand: número principal e texto de marca sobre o azul */
+  --color-amarelo-medio: #ffe200; /* gold */
+
+  /* Claros */
+  --color-nevoa: #f4f4f1;         /* bg light */
+  --color-branco: #ffffff;
+
+  /* Texto por opacidade (ledm-brand: mínimo 58% no escuro, 64% no claro) */
+  --color-sobre-azul: #ffffff;
+  --color-sobre-azul-2: rgb(255 255 255 / 0.78);
+  --color-sobre-azul-3: rgb(255 255 255 / 0.66);
+  --color-tinta: #111d66;
+  --color-tinta-2: rgb(17 29 102 / 0.82);
+  --color-tinta-3: rgb(17 29 102 / 0.7);
+
+  /* Linhas */
+  --color-linha-azul: rgb(255 255 255 / 0.14);
+  --color-linha-clara: rgb(17 29 102 / 0.14);
+
+  /* Só no /painel: estado sempre com rótulo escrito */
+  --color-verde-painel: #1f9d6b;
+  --color-vermelho-painel: #d9483b;
+
+  /* Tipografia (carregadas pelo next/font no layout) */
+  --font-titulo: var(--fonte-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-texto: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Formas */
+  --radius-botao: 4px;
+  --radius-cartao: 16px;
+  --radius-painel: 24px;
+
+  /* Movimento */
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+html { interpolate-size: allow-keywords; }
+
+:root {
+  /* Degradês da marca: o da luz só em botão principal; o azul nos blocos Plantão */
+  --grad-luz: linear-gradient(90deg, #ffff00, #ffcc00);
+  --grad-plantao: linear-gradient(160deg, var(--color-azul-plantao), var(--color-azul-noite));
+  --largura: 74rem;
+  --lateral: clamp(1.5rem, 4vw, 2.75rem);
+  --bloco: clamp(4rem, 8vw, 6rem);
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-nevoa);
+  color: var(--color-tinta);
+  font-family: var(--font-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-titulo); text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* Foco sempre visível: 3px, amarelo no azul, azul no claro */
+:focus-visible {
+  outline: 3px solid var(--color-azul-plantao);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.tema-plantao :focus-visible { outline-color: var(--color-amarelo); }
+
+/* ══ Temas por bloco ═══════════════════════════════════════════════════ */
+.tema-plantao {
+  background: var(--grad-plantao);
+  color: var(--color-sobre-azul);
+}
+.tema-nevoa {
+  background: var(--color-nevoa);
+  color: var(--color-tinta);
+}
+
+/* ══ Componentes base ═════════════════════════════════════════════════ */
+.container-site {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--lateral);
+}
+.bloco { padding-block: var(--bloco); }
+
+/* Rótulo: caixa alta, até 3 palavras, no estilo "( RÓTULO )" do Aura */
+.rotulo {
+  font-family: var(--font-titulo);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Botões (ledm-brand: uppercase 0.82rem peso 800, tracking 0.1em) */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius-botao);
+  font-family: var(--font-titulo);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s linear, background-color 0.25s, color 0.25s;
+}
+.botao:hover { transform: translateY(-1px); }
+.botao svg { width: 1rem; height: 1rem; flex-shrink: 0; transition: transform 0.25s var(--ease-apple); }
+.botao:hover svg { transform: translateX(3px); }
+
+.botao-principal { background: var(--grad-luz); color: var(--color-azul-plantao); }
+.tema-plantao .botao-secundario { background: var(--color-azul-noite); color: var(--color-branco); box-shadow: inset 0 0 0 1px var(--color-linha-azul); }
+.tema-plantao .botao-secundario:hover { background: var(--color-azul-hover); }
+.tema-nevoa .botao-secundario { background: var(--color-azul-plantao); color: var(--color-branco); }
+.tema-nevoa .botao-secundario:hover { background: var(--color-azul-hover); }
+
+/* Link de texto com seta */
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+.link-seta svg { width: 1rem; height: 1rem; transition: transform 0.25s var(--ease-apple); }
+.link-seta:hover svg { transform: translateX(3px); }
+
+/* Marcador de lista: quadradinho arredondado na cor do texto */
+.lista-quadrada { list-style: none; padding: 0; }
+.lista-quadrada li { position: relative; padding-left: 1.4rem; }
+.lista-quadrada li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+/* Números com algarismos tabulares */
+.numeros { font-variant-numeric: tabular-nums; }
+
+/* ══ Movimento único: a luz acendendo sobre o que foi resolvido ════════
+   O elemento entra apagado (cor secundária) e acende uma vez ao aparecer. */
+.acende { transition: color 0.9s var(--ease-expo), background-color 0.9s var(--ease-expo), opacity 0.9s var(--ease-expo); }
+.acende-texto { color: var(--color-sobre-azul-3); }
+.acende-texto.aceso { color: var(--color-amarelo); }
+.acende-fundo { background-color: var(--color-linha-azul); }
+.acende-fundo.aceso { background-color: var(--color-amarelo); }
+.acende-faixa { background-color: var(--color-linha-clara); }
+.acende-faixa.aceso { background-color: var(--color-amarelo); }
+@media (scripting: none) {
+  .acende-texto { color: var(--color-amarelo); }
+  .acende-fundo, .acende-faixa { background-color: var(--color-amarelo); }
+}
+
+/* Pular para o conteúdo */
+.pular {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-amarelo);
+  color: var(--color-azul-plantao);
+  font-weight: 700;
+  border-radius: var(--radius-botao);
+}
+.pular:focus { top: 1rem; }
+
+/* ══ Efeitos do Aura ══════════════════════════════════════════════════ */
+/* Faixas em movimento: o conteúdo vem duplicado, então -50% fecha o loop sem emenda */
+@keyframes marquee-a { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-b { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.marquee-a { animation: marquee-a 28s linear infinite; }
+.marquee-b { animation: marquee-b 32s linear infinite; }
+
+/* Blocos que entram do desfoque */
+[data-revelar] {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+  transition-delay: var(--atraso, 0s);
+}
+[data-revelar].revelado { opacity: 1; filter: blur(0); transform: none; }
+
+/* Títulos palavra por palavra */
+@keyframes palavra-entra {
+  from { opacity: 0; filter: blur(10px); transform: translateY(18px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+.palavra { display: inline-block; opacity: 0; will-change: transform, filter; }
+[data-palavras].revelado .palavra {
+  animation: palavra-entra 0.7s cubic-bezier(0.22, 0.68, 0.34, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 0.06s);
+}
+
+/* Selo girando */
+@keyframes gira { to { transform: rotate(360deg); } }
+.selo-gira { animation: gira 22s linear infinite; }
+
+/* Imagem com parallax: maior que a moldura para não mostrar borda ao deslocar */
+[data-parallax] { transform: scale(1.15); will-change: transform; }
+[data-pilha] { transform-origin: center top; will-change: transform, filter, opacity; }
+
+/* Sanfona com abertura suave (como no Aura) */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.45s var(--ease-apple), content-visibility 0.45s allow-discrete;
+}
+details[open]::details-content { block-size: auto; }
+
+/* Sem JavaScript: tudo visível */
+@media (scripting: none) {
+  [data-revelar], .palavra { opacity: 1 !important; filter: none !important; transform: none !important; }
+}
+
+/* ══ Simulação de WhatsApp (cores do aplicativo, só nesta simulação) ══ */
+:root {
+  --wa-topo: #008069;
+  --wa-fundo: #efeae2;
+  --wa-saida: #d9fdd3;
+  --wa-entrada: #ffffff;
+  --wa-texto: #111b21;
+  --wa-hora: #667781;
+  --wa-check: #53bdeb;
+  --wa-sistema: #ffeecd;
+}
+@keyframes balao-entra {
+  0% { opacity: 0; transform: translateY(10px) scale(0.86); }
+  60% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  100% { opacity: 1; transform: none; }
+}
+.balao { animation: balao-entra 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.balao-saida { transform-origin: bottom right; }
+.balao-entrada { transform-origin: bottom left; }
+@keyframes digitando {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+.ponto-digitando { animation: digitando 1.1s ease-in-out infinite; }
+.ponto-digitando:nth-child(2) { animation-delay: 0.15s; }
+.ponto-digitando:nth-child(3) { animation-delay: 0.3s; }
+@keyframes campo-preenche {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+.campo-preenchido { animation: campo-preenche 0.5s var(--ease-apple) both; }
+/* Papel de parede do WhatsApp: padrão discreto */
+.wa-papel {
+  background-color: var(--wa-fundo);
+  background-image: radial-gradient(rgb(0 0 0 / 0.035) 1px, transparent 1px);
+  background-size: 14px 14px;
+}

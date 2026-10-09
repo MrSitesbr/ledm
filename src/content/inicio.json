@@ -1,0 +1,373 @@
+{
+  "seo": {
+    "titulo": "Agência digital para o mercado imobiliário | Led Marketing",
+    "descricao": "Redes sociais, anúncios, sites, identidade visual, sistemas e assistentes de IA para construtoras, incorporadoras, imobiliárias e corretores do litoral de São Paulo."
+  },
+  "dobra": {
+    "rotulo": "Agência digital · Mercado imobiliário",
+    "tituloAntes": "Marketing, sistemas e IA para quem",
+    "tituloSelo": "vende imóvel",
+    "tituloApagado": "no litoral",
+    "tituloFinal": "de São Paulo.",
+    "subtitulo": "A Led Marketing deixou de ser só uma agência de marketing. Seguimos cuidando de redes sociais, anúncios, sites e identidade visual, e agora entregamos também os sistemas e os assistentes de IA que fazem a venda andar.",
+    "botaoSecundario": "Ver o que fazemos",
+    "imagem": "/img/predio-noite.webp",
+    "imagemAlt": "Prédio residencial à noite, com janelas acesas",
+    "flutuantes": [
+      {
+        "titulo": "Post publicado",
+        "detalhe": "Perfil da construtora",
+        "imagem": "/img/fachada-residencial-900.webp"
+      },
+      {
+        "titulo": "Anúncio no ar",
+        "detalhe": "Campanha do lançamento",
+        "imagem": "/img/apartamentos-mar-900.webp"
+      }
+    ],
+    "chips": [
+      "Contato respondido pela IA",
+      "Tabela atualizada",
+      "Visita agendada"
+    ],
+    "painelRotulo": "Plantão digital",
+    "painelEstado": "Atendendo agora",
+    "abas": [
+      "Redes sociais",
+      "Anúncios",
+      "Sites",
+      "Identidade visual",
+      "Sistemas",
+      "Assistentes de IA"
+    ]
+  },
+  "faixa": [
+    "Lançamento",
+    "Tabela",
+    "Disponibilidade",
+    "Corretor parceiro",
+    "Decorado",
+    "Entrega das chaves",
+    "Plantão",
+    "Prédio vendido"
+  ],
+  "faixa2": [
+    "Redes sociais",
+    "Anúncios",
+    "Sites",
+    "Identidade visual",
+    "Sistemas",
+    "Assistentes de IA"
+  ],
+  "manifesto": {
+    "rotulo": "Quem somos",
+    "texto": "Há seis anos em Praia Grande, a Led cuida do marketing de quem vende imóvel. Agora cuidamos também do que vem depois do post: o atendimento, o corretor e a gestão da venda."
+  },
+  "porque": {
+    "rotulo": "Por que a Led",
+    "numeros": [
+      {
+        "valor": 6,
+        "sufixo": "",
+        "texto": "anos em Praia Grande"
+      },
+      {
+        "valor": 6,
+        "sufixo": "",
+        "texto": "frentes de serviço"
+      },
+      {
+        "valor": 24,
+        "sufixo": "h",
+        "texto": "de atendimento com IA"
+      }
+    ],
+    "sliderRotulo": "O que ouvimos do setor",
+    "imagem": "/img/orla.webp",
+    "frases": [
+      "Ponho dinheiro em anúncio, portal e agência e não sei quantas vendas isso trouxe.",
+      "O lead chega e ninguém responde na hora. Quando o corretor liga, já comprou do concorrente.",
+      "Minha rede de parceiros esfria. Tabela e disponibilidade vivem em planilha e WhatsApp.",
+      "Apartamento pronto parado me custa condomínio e IPTU todo mês."
+    ],
+    "anterior": "Frase anterior",
+    "proxima": "Próxima frase"
+  },
+  "solucoes": {
+    "rotulo": "O que fazemos",
+    "titulo": "Do perfil no Instagram ao sistema de vendas",
+    "itens": [
+      {
+        "area": "Presença",
+        "titulo": "Gestão de redes sociais",
+        "meta": "Conteúdo e calendário"
+      },
+      {
+        "area": "Captação",
+        "titulo": "Anúncios online",
+        "meta": "Campanhas com origem medida"
+      },
+      {
+        "area": "Conversão",
+        "titulo": "Sites e landing pages",
+        "meta": "Um destino por empreendimento"
+      },
+      {
+        "area": "Marca",
+        "titulo": "Identidade visual",
+        "meta": "Logo, manual e peças"
+      },
+      {
+        "area": "Operação",
+        "titulo": "Sistemas",
+        "meta": "Painel do corretor e gestão de contatos"
+      },
+      {
+        "area": "Atendimento",
+        "titulo": "Assistentes de IA",
+        "meta": "WhatsApp respondido a qualquer hora"
+      }
+    ]
+  },
+  "cases": {
+    "rotulo": "Cases",
+    "titulo": "Quem já trabalha com a Led",
+    "rascunho": "Rascunho: textos a preencher",
+    "metaSegmento": "Segmento",
+    "metaFizemos": "O que fizemos",
+    "metaEntrega": "Entrega",
+    "itens": [
+      {
+        "nome": "Vendebens",
+        "cliente": "Vendebens Imóveis",
+        "segmento": "Imobiliária",
+        "resumo": "[PREENCHER: o que a Led fez para a Vendebens, em uma ou duas frases]",
+        "fizemos": "[PREENCHER]",
+        "entrega": "[PREENCHER]",
+        "imagem": "/img/apartamentos-mar-900.webp"
+      },
+      {
+        "nome": "Grupo Exito",
+        "cliente": "Construtora Grupo Exito",
+        "segmento": "Construtora e incorporadora",
+        "resumo": "[PREENCHER: o que a Led fez para o Grupo Exito, em uma ou duas frases]",
+        "fizemos": "[PREENCHER]",
+        "entrega": "[PREENCHER]",
+        "imagem": "/img/fachada-construtora-900.webp"
+      },
+      {
+        "nome": "Kennedy",
+        "cliente": "Coworking Kennedy",
+        "segmento": "Coworking",
+        "resumo": "[PREENCHER: o que a Led fez para o Coworking Kennedy, em uma ou duas frases]",
+        "fizemos": "[PREENCHER]",
+        "entrega": "[PREENCHER]",
+        "imagem": "/img/escritorio-janela-900.webp"
+      },
+      {
+        "nome": "013",
+        "cliente": "Coworking 013",
+        "segmento": "Coworking",
+        "resumo": "[PREENCHER: o que a Led fez para o Coworking 013, em uma ou duas frases]",
+        "fizemos": "[PREENCHER]",
+        "entrega": "[PREENCHER]",
+        "imagem": "/img/mesa-trabalho-900.webp"
+      }
+    ]
+  },
+  "comoTrabalhamos": {
+    "rotulo": "Como trabalhamos",
+    "etapas": [
+      "Diagnóstico",
+      "Implantação",
+      "Acompanhamento"
+    ]
+  },
+  "plantao": {
+    "fundo": "24h",
+    "rotulo": "Sistemas e IA",
+    "titulo": "O plantão que não fecha",
+    "texto": "Quem chama às nove da noite recebe resposta na hora. O assistente de IA tira a dúvida básica, registra o contato e passa para o corretor, que continua sendo quem negocia.",
+    "imagem": "/img/cidade-noite-900.webp",
+    "imagemAlt": "Cidade à noite com prédios iluminados",
+    "barra": "led / plantão digital",
+    "estado": "Atendendo",
+    "selo": "LED MARKETING · AGÊNCIA DIGITAL · ",
+    "passoRotulo": "Passo",
+    "passos": [
+      "Diagnóstico da sua operação de vendas",
+      "Assistente de IA no WhatsApp",
+      "Painel do corretor com tabela e disponibilidade",
+      "Relatório mensal de contatos e origem"
+    ]
+  },
+  "comecar": {
+    "rotulo": "Como começar",
+    "titulo": "Dois jeitos de trabalhar com a Led",
+    "nota": "Os valores são apresentados em uma reunião, depois de entendermos a sua operação.",
+    "idealPara": "Ideal para",
+    "opcoes": [
+      {
+        "nome": "Marketing",
+        "texto": "Para quem precisa de presença e de contato chegando.",
+        "itens": [
+          "Gestão de redes sociais",
+          "Anúncios online",
+          "Sites e landing pages",
+          "Identidade visual"
+        ],
+        "para": "Imobiliárias e corretores",
+        "destaque": false
+      },
+      {
+        "nome": "Marketing, sistemas e IA",
+        "texto": "Para quem quer a venda inteira funcionando, do anúncio ao corretor.",
+        "itens": [
+          "Tudo do Marketing",
+          "Assistente de IA no WhatsApp",
+          "Painel do corretor",
+          "Relatório mensal de contatos"
+        ],
+        "para": "Construtoras e incorporadoras",
+        "destaque": true
+      }
+    ]
+  },
+  "duvidas": {
+    "rotulo": "Dúvidas",
+    "titulo": "Perguntas frequentes",
+    "texto": "O que os empresários do setor mais perguntam antes de começar."
+  },
+  "final": {
+    "titulo": "Agende uma apresentação da Led",
+    "texto": "Mostramos como a Led trabalharia na sua empresa e apresentamos os valores, sem compromisso.",
+    "imagem": "/img/cidade-entardecer.webp"
+  },
+  "sdr": {
+    "rotulo": "Assistente SDR com IA",
+    "titulo": "Um SDR com IA que qualifica cada contato, 24 horas por dia",
+    "texto": "O assistente atende na hora quem chega pelo anúncio, pelo portal ou pelo Instagram, de dia ou de madrugada. Ele responde as dúvidas sobre o imóvel e, na mesma conversa, descobre o que importa para a venda: se é para morar ou investir, como a pessoa pretende pagar e quando quer comprar.",
+    "pontos": [
+      "Responde em segundos, inclusive à noite e no fim de semana",
+      "Faz as perguntas de qualificação sem parecer um formulário",
+      "Passa o contato ao corretor com resumo e origem",
+      "Quem negocia continua sendo o corretor"
+    ],
+    "aviso": "Simulação com dados fictícios",
+    "contato": "Residencial Modelo I",
+    "contatoStatus": "online",
+    "digitando": "digitando...",
+    "campoMensagem": "Mensagem",
+    "anuncio": {
+      "titulo": "Residencial Modelo I",
+      "texto": "Apartamentos de 2 dormitórios na Praia Grande",
+      "rotulo": "Anúncio",
+      "imagem": "/img/fachada-residencial-900.webp"
+    },
+    "ficha": {
+      "titulo": "Ficha do contato",
+      "estado": "Qualificando",
+      "pronto": "Enviado ao corretor",
+      "campos": [
+        {
+          "id": "nome",
+          "rotulo": "Nome"
+        },
+        {
+          "id": "objetivo",
+          "rotulo": "Objetivo"
+        },
+        {
+          "id": "pagamento",
+          "rotulo": "Pagamento"
+        },
+        {
+          "id": "prazo",
+          "rotulo": "Prazo"
+        },
+        {
+          "id": "origem",
+          "rotulo": "Origem"
+        }
+      ]
+    },
+    "conversa": [
+      {
+        "de": "lead",
+        "hora": "21:14",
+        "texto": "Olá, vi o anúncio do apartamento. Ainda tem unidade disponível?",
+        "anuncio": true,
+        "captura": {
+          "origem": "Anúncio no Instagram"
+        }
+      },
+      {
+        "de": "ia",
+        "hora": "21:14",
+        "texto": "Boa noite. Tem sim. O Residencial Modelo I tem unidades de 2 dormitórios com varanda. Com quem eu falo?"
+      },
+      {
+        "de": "lead",
+        "hora": "21:15",
+        "texto": "Marcos",
+        "captura": {
+          "nome": "Marcos"
+        }
+      },
+      {
+        "de": "ia",
+        "hora": "21:15",
+        "texto": "Prazer, Marcos. O apartamento é para morar ou para investir?"
+      },
+      {
+        "de": "lead",
+        "hora": "21:15",
+        "texto": "Para morar. Qual o valor?",
+        "captura": {
+          "objetivo": "Morar"
+        }
+      },
+      {
+        "de": "ia",
+        "hora": "21:16",
+        "texto": "O valor muda conforme o andar e a vista. Você pensa em financiar ou pagar à vista?"
+      },
+      {
+        "de": "lead",
+        "hora": "21:16",
+        "texto": "Financiar. Tenho FGTS para a entrada.",
+        "captura": {
+          "pagamento": "Financiamento com FGTS"
+        }
+      },
+      {
+        "de": "ia",
+        "hora": "21:16",
+        "texto": "Ótimo, isso ajuda bastante. Para quando você pensa em se mudar?"
+      },
+      {
+        "de": "lead",
+        "hora": "21:17",
+        "texto": "Até o fim do ano que vem.",
+        "captura": {
+          "prazo": "Até 12 meses"
+        }
+      },
+      {
+        "de": "ia",
+        "hora": "21:17",
+        "texto": "Perfeito. Vou passar seu contato para o Rafael, corretor deste empreendimento. Ele te chama amanhã cedo com a tabela e as plantas. Pode ser?"
+      },
+      {
+        "de": "lead",
+        "hora": "21:17",
+        "texto": "Pode sim, obrigado."
+      },
+      {
+        "de": "sistema",
+        "texto": "Contato enviado ao corretor Rafael",
+        "final": true
+      }
+    ]
+  }
+}
