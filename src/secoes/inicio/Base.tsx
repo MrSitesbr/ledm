@@ -283,8 +283,9 @@ export function ChamadaFinal() {
 export function AssistenteSdr() {
   const s = inicio.sdr;
   return (
-    <section id="assistente-sdr" className="tema-plantao bloco overflow-hidden" aria-labelledby="titulo-sdr">
-      <div className="container-site grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+    <section id="assistente-sdr" className="tema-plantao overflow-hidden" style={{ paddingBlock: 'calc(var(--bloco) * 0.9)' }} aria-labelledby="titulo-sdr">
+      {/* Tudo 10% menor (zoom 0.9) */}
+      <div className="container-site grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20" style={{ zoom: 0.9 }}>
         <div>
           <Rotulo className="text-sobre-azul-2">{s.rotulo}</Rotulo>
           <h2 id="titulo-sdr" data-palavras className={`${titulo} mt-5 max-w-[22ch] text-[clamp(1.5rem,2.6vw,2.1rem)] leading-[1.15]`}>
