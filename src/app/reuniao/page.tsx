@@ -112,14 +112,26 @@ export default function Reuniao() {
           </div>
         </section>
 
-        {/* Quem conduz: honesto sobre o tamanho da Led */}
-        <section className="tema-nevoa bloco">
-          <div className="container-site mx-auto max-w-3xl text-center">
-            <Rotulo className="text-tinta-3">{r.honesta.rotulo}</Rotulo>
-            <h2 data-palavras className={`${titulo} mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1]`}>
-              <Palavras texto={r.honesta.titulo} />
-            </h2>
-            <p data-revelar className="mt-6 text-[1.0625rem] leading-relaxed text-tinta-2">{r.honesta.texto}</p>
+        {/* Quem conduz: foto do Walter colada à esquerda, texto compacto à direita */}
+        <section className="tema-nevoa overflow-hidden">
+          <div className="container-site grid items-end gap-8 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:pt-20">
+            <div data-revelar className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <Image src={r.honesta.foto} alt={r.honesta.fotoAlt} width={1145} height={1374} sizes="(min-width: 1024px) 40vw, 90vw" className="relative block h-auto w-full rounded-t-[28px]" />
+            </div>
+            <div className="pb-14 lg:pb-20">
+              <Rotulo className="text-tinta-3">{r.honesta.rotulo}</Rotulo>
+              <h2 data-palavras className={`${titulo} mt-4 text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.05]`}>
+                <Palavras texto={r.honesta.nome} />
+              </h2>
+              <p className="mt-2 font-[family-name:var(--font-titulo)] font-bold text-tinta-2">{r.honesta.cargo}</p>
+              <div data-revelar className="mt-5 grid gap-3 text-[0.95rem] leading-relaxed text-tinta-2">
+                {r.honesta.paragrafos.map((p) => <p key={p}>{p}</p>)}
+              </div>
+              <p data-revelar className="mt-6 flex gap-3 rounded-[var(--radius-cartao)] bg-azul-plantao p-5 font-[family-name:var(--font-titulo)] font-bold leading-snug text-sobre-azul">
+                <span aria-hidden="true" className="mt-1.5 size-2.5 shrink-0 rounded-[3px]" style={{ background: 'var(--grad-luz)' }} />
+                {r.honesta.destaque}
+              </p>
+            </div>
           </div>
         </section>
 
