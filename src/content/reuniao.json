@@ -1,0 +1,70 @@
+{
+  "seo": {
+    "titulo": "Call estratégica gratuita | Led Marketing",
+    "descricao": "Converse com a Led Marketing sobre a operação de vendas da sua empresa imobiliária: marketing, sistemas e IA para o litoral de São Paulo."
+  },
+  "dobra": {
+    "selo": "Call estratégica · Gratuita",
+    "tituloA": "Seu marketing traz contato.",
+    "tituloB": "Falta transformar contato em venda.",
+    "texto": "Numa call de 30 minutos, olhamos juntos como sua empresa atrai, atende e acompanha cada interessado, e mostramos onde marketing, sistemas e IA podem destravar suas vendas no litoral de São Paulo.",
+    "provas": ["6 anos em Praia Grande", "Só mercado imobiliário", "Atendimento direto com o Walter"],
+    "imagem": "/img/predio-noite.webp"
+  },
+  "faixa": ["Construtoras", "Incorporadoras", "Imobiliárias", "Corretores", "Redes sociais", "Anúncios", "Sites", "Sistemas", "Assistentes de IA", "Litoral de SP"],
+  "paraQuem": {
+    "rotulo": "Esta call é para você",
+    "titulo": "Para quem investe em marketing e sente que a venda não acompanha",
+    "texto": "Se você se identifica com pelo menos uma destas situações, vale a conversa.",
+    "imagem": "/img/apartamentos-mar.webp",
+    "itens": [
+      { "titulo": "Contato sem resposta", "texto": "O interessado chama à noite ou no fim de semana e só recebe retorno no dia seguinte." },
+      { "titulo": "Investimento sem medida", "texto": "Você paga anúncio, portal e agência e não sabe quantas vendas isso trouxe." },
+      { "titulo": "Corretor sem material", "texto": "Tabela e disponibilidade ficam em planilha e WhatsApp, e o corretor oferece o concorrente." },
+      { "titulo": "Perfil parado", "texto": "As redes da empresa não têm frequência nem cara de quem vende imóvel." },
+      { "titulo": "Tudo depende de você", "texto": "Sem um sistema, cada contato e cada corretor passam pelo seu WhatsApp." }
+    ]
+  },
+  "recebe": {
+    "rotulo": "O que você leva da call",
+    "titulo": "Uma conversa prática, sobre a sua operação",
+    "texto": "Sem apresentação genérica. Saímos da call com um caminho claro para os próximos meses.",
+    "itens": [
+      { "titulo": "Diagnóstico rápido", "texto": "Onde sua empresa perde contato hoje: atração, atendimento ou acompanhamento.", "icone": "search" },
+      { "titulo": "Prioridades", "texto": "O que resolver primeiro entre redes sociais, anúncios, site, sistema e IA.", "icone": "filter" },
+      { "titulo": "Plano de ação", "texto": "Os passos práticos para os próximos 90 dias, com ou sem a Led.", "icone": "clipboard" },
+      { "titulo": "Proposta sob medida", "texto": "Se fizer sentido, apresentamos como a Led trabalharia e os valores.", "icone": "document" }
+    ]
+  },
+  "honesta": {
+    "rotulo": "Quem conduz",
+    "titulo": "Uma agência pequena, especialista e perto de você",
+    "texto": "A Led Marketing é uma agência de Praia Grande que trabalha só com o mercado imobiliário do litoral. Você não fala com um vendedor: a call é conduzida pelo Walter Araújo, que acompanha cada cliente de perto. Seguimos cuidando de redes sociais, anúncios, sites e identidade visual, e agora também entregamos os sistemas e os assistentes de IA que fazem a venda andar."
+  },
+  "final": {
+    "titulo": "Agende sua call estratégica",
+    "texto": "Responda 2 etapas rápidas. O WhatsApp abre com a mensagem pronta para confirmarmos o melhor horário.",
+    "botao": "Quero agendar minha call"
+  },
+  "form": {
+    "titulo": "Agende sua call",
+    "subtitulo": "Responda e confirmamos o horário pelo WhatsApp.",
+    "etapa": "Etapa [n] de 2",
+    "continuar": "Continuar",
+    "voltar": "Voltar",
+    "enviar": "Agendar pelo WhatsApp",
+    "nota": "Vagas limitadas por semana. Este site não guarda seus dados.",
+    "campos": {
+      "tipo": { "rotulo": "Tipo de empresa", "placeholder": "Qual é a sua empresa?", "opcoes": ["Construtora", "Incorporadora", "Imobiliária", "Corretor autônomo", "Outro"] },
+      "cidade": { "rotulo": "Cidade", "placeholder": "Onde atua?" },
+      "desafio": { "rotulo": "Maior desafio hoje", "placeholder": "Qual o seu maior desafio?", "opcoes": ["Gerar mais contatos", "Responder e qualificar contatos", "Organizar corretores e tabela", "Ter presença nas redes", "Site ou identidade visual", "Medir o retorno do marketing"] },
+      "quando": { "rotulo": "Quando quer resolver?", "placeholder": "Quando pretende resolver?", "opcoes": ["Agora", "Nos próximos 30 dias", "Em até 3 meses", "Só pesquisando"] },
+      "nome": { "rotulo": "Seu nome" },
+      "whatsapp": { "rotulo": "Seu WhatsApp", "placeholder": "(00) 00000-0000" },
+      "empresa": { "rotulo": "Nome da empresa" }
+    },
+    "erro": "Preencha este campo.",
+    "erroWhatsapp": "Escreva o WhatsApp com DDD.",
+    "mensagem": "Olá, Walter. Quero agendar uma call estratégica. Sou [nome], da [empresa] ([tipo]), em [cidade]. Maior desafio: [desafio]. Quero resolver: [quando]. Meu WhatsApp: [whatsapp]."
+  }
+}
