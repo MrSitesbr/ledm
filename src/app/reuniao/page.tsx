@@ -114,12 +114,12 @@ export default function Reuniao() {
 
         {/* Quem conduz: foto do Walter colada à esquerda, texto compacto à direita */}
         <section className="tema-nevoa overflow-hidden">
-          <div className="container-site grid gap-8 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch lg:gap-14 lg:pt-20">
+          <div className="container-site grid items-center gap-8 py-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14 lg:py-20">
             {/* A foto acompanha a altura do texto e é recortada (object-cover), sem estourar a seção */}
-            <div data-revelar className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-t-[28px] lg:aspect-auto lg:h-full lg:max-w-none">
+            <div data-revelar className="relative mx-auto aspect-[4/5] w-full max-w-[18rem] overflow-hidden rounded-[28px] lg:max-w-[22rem]">
               <Image src={r.honesta.foto} alt={r.honesta.fotoAlt} fill sizes="(min-width: 1024px) 40vw, 90vw" className="object-cover object-top" />
             </div>
-            <div className="pb-14 lg:pb-20">
+            <div>
               <Rotulo className="text-tinta-3">{r.honesta.rotulo}</Rotulo>
               <h2 data-palavras className={`${titulo} mt-4 text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.05]`}>
                 <Palavras texto={r.honesta.nome} />
