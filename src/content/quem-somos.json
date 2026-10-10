@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "titulo": "Quem somos | Led Marketing",
+    "descricao": "Conheça a Led Marketing: agência digital de Praia Grande especializada no mercado imobiliário do litoral de São Paulo."
+  },
+  "dobra": {
+    "rotulo": "Quem somos",
+    "titulo": "Uma agência digital feita para quem vende imóvel no litoral",
+    "texto": "Há seis anos em Praia Grande, a Led Marketing une criação, estratégia e tecnologia para construtoras, incorporadoras, imobiliárias e corretores. Cuidamos do marketing e agora também dos sistemas e da IA que fazem a venda andar."
+  },
+  "walterRotulo": "Fundador",
+  "equipe": {
+    "rotulo": "Nossa equipe",
+    "titulo": "Um time enxuto, com especialistas em cada etapa",
+    "texto": "Trabalhamos com um núcleo fixo e uma rede de especialistas que entra em cada projeto conforme a necessidade. Assim cada cliente tem atendimento próximo e a competência certa em cada etapa.",
+    "imagem": "/img/escritorio-janela.webp",
+    "imagemAlt": "Equipe trabalhando em escritório",
+    "funcoes": [
+      { "titulo": "Estratégia e atendimento", "texto": "Entende a operação de cada cliente, define prioridades e acompanha os resultados.", "icone": "users" },
+      { "titulo": "Design e direção de arte", "texto": "Identidade visual, posts, anúncios e materiais de lançamento com a cara de cada marca.", "icone": "document" },
+      { "titulo": "Conteúdo e redes sociais", "texto": "Calendário, roteiros e textos que mantêm o perfil vivo e levam o interessado ao atendimento.", "icone": "chat" },
+      { "titulo": "Tráfego pago", "texto": "Campanhas no Meta e no Google com origem medida e verba bem aplicada.", "icone": "chart" },
+      { "titulo": "Sites e desenvolvimento", "texto": "Sites, landing pages e ferramentas sob medida, rápidos e prontos para captar contatos.", "icone": "grid" },
+      { "titulo": "Automação e IA", "texto": "Assistentes de IA no WhatsApp, painéis e integrações que tiram o operacional das suas mãos.", "icone": "bell" },
+      { "titulo": "Foto e vídeo", "texto": "Captação de obra, decorado e empreendimento com parceiros de produção audiovisual.", "icone": "search" },
+      { "titulo": "Dados e relatórios", "texto": "Leitura mensal de contatos, origem e atendimento para decidir com número.", "icone": "clipboard" }
+    ]
+  },
+  "cultura": {
+    "rotulo": "Nossa cultura",
+    "titulo": "O jeito Led de trabalhar",
+    "valores": [
+      { "titulo": "Especialização", "texto": "Escolhemos um setor e uma região para conhecer de verdade o ciclo de venda de imóvel." },
+      { "titulo": "Proximidade", "texto": "Cliente fala com quem faz. Sem intermediários e sem respostas genéricas." },
+      { "titulo": "Clareza", "texto": "Prometemos o que dá para entregar e mostramos o resultado em número." },
+      { "titulo": "Evolução constante", "texto": "Design, tecnologia e IA mudam rápido. Estudamos e testamos para o cliente não ficar para trás." }
+    ]
+  },
+  "trabalhe": {
+    "rotulo": "Trabalhe com a gente",
+    "titulo": "Faça parte da equipe Led",
+    "texto": "Procuramos profissionais e parceiros que gostem de criação, tecnologia e do mercado imobiliário. Conte um pouco sobre você.",
+    "campos": { "nome": "Seu nome", "whatsapp": "Seu WhatsApp", "area": "Área de atuação", "portfolio": "Portfólio ou LinkedIn (opcional)" },
+    "areaPlaceholder": "Escolha a área",
+    "areas": ["Design", "Conteúdo e redes sociais", "Tráfego pago", "Desenvolvimento", "Automação e IA", "Foto e vídeo", "Atendimento", "Outra"],
+    "botao": "Enviar pelo WhatsApp",
+    "nota": "O WhatsApp abre com a mensagem pronta. Este site não guarda seus dados.",
+    "erro": "Preencha este campo.",
+    "mensagem": "Olá, Walter. Quero fazer parte da equipe da Led. Sou [nome], atuo com [area]. Portfólio: [portfolio]. Meu WhatsApp: [whatsapp]."
+  }
+}

@@ -8,6 +8,7 @@ import { Icone, type NomeIcone } from '@/components/Icone';
 import { Palavras, contarPalavras } from '@/components/Palavras';
 import { FormularioCall } from '@/components/FormularioCall';
 import { Efeitos } from '@/components/Efeitos';
+import { SecaoWalter } from '@/components/SecaoWalter';
 
 export const metadata: Metadata = {
   title: { absolute: r.seo.titulo },
@@ -112,29 +113,7 @@ export default function Reuniao() {
           </div>
         </section>
 
-        {/* Quem conduz: foto do Walter colada à esquerda, texto compacto à direita */}
-        <section className="tema-nevoa overflow-hidden">
-          <div className="container-site grid items-center gap-8 py-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14 lg:py-20">
-            {/* A foto acompanha a altura do texto e é recortada (object-cover), sem estourar a seção */}
-            <div data-revelar className="relative mx-auto aspect-[4/5] w-full max-w-[18rem] overflow-hidden rounded-[28px] lg:max-w-[22rem]">
-              <Image src={r.honesta.foto} alt={r.honesta.fotoAlt} fill sizes="(min-width: 1024px) 40vw, 90vw" className="object-cover object-top" />
-            </div>
-            <div>
-              <Rotulo className="text-tinta-3">{r.honesta.rotulo}</Rotulo>
-              <h2 data-palavras className={`${titulo} mt-4 text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.05]`}>
-                <Palavras texto={r.honesta.nome} />
-              </h2>
-              <p className="mt-2 font-[family-name:var(--font-titulo)] font-bold text-tinta-2">{r.honesta.cargo}</p>
-              <div data-revelar className="mt-5 grid gap-3 text-[0.95rem] leading-relaxed text-tinta-2">
-                {r.honesta.paragrafos.map((p) => <p key={p}>{p}</p>)}
-              </div>
-              <p data-revelar className="mt-6 flex gap-3 rounded-[var(--radius-cartao)] bg-azul-plantao p-5 font-[family-name:var(--font-titulo)] font-bold leading-snug text-sobre-azul">
-                <span aria-hidden="true" className="mt-1.5 size-2.5 shrink-0 rounded-[3px]" style={{ background: 'var(--grad-luz)' }} />
-                {r.honesta.destaque}
-              </p>
-            </div>
-          </div>
-        </section>
+        <SecaoWalter rotulo={r.honesta.rotulo} />
 
         {/* Chamada final */}
         <section className="container-site pb-6">
