@@ -1,19 +1,21 @@
 {
   "seo": {
-    "titulo": "Call estratégica gratuita | Led Marketing",
+    "titulo": "Reunião estratégica gratuita | Led Marketing",
     "descricao": "Converse com a Led Marketing sobre a operação de vendas da sua empresa imobiliária: marketing, sistemas e IA para o litoral de São Paulo."
   },
   "dobra": {
-    "selo": "Call estratégica · Gratuita",
-    "tituloA": "Seu marketing traz contato.",
-    "tituloB": "Falta transformar contato em venda.",
-    "texto": "Numa call de 30 minutos, olhamos juntos como sua empresa atrai, atende e acompanha cada interessado, e mostramos onde marketing, sistemas e IA podem destravar suas vendas no litoral de São Paulo.",
+    "selo": "Reunião estratégica · Gratuita",
+    "tituloA": "Uma visão estratégica sobre",
+    "tituloB": "seu marketing imobiliário",
     "provas": [
-      "6 anos em Praia Grande",
-      "Só mercado imobiliário",
-      "Atendimento direto com o Walter"
+      "Mais de 6 anos no Litoral Paulista",
+      "Focados no mercado imobiliário"
     ],
-    "imagem": "/img/predio-noite.webp"
+    "imagem": "/img/predio-noite.webp",
+    "textos": [
+      "Em 30 minutos, analisamos como seus imóveis são divulgados, apresentados e trabalhados comercialmente, do conteúdo e público alcançado aos processos de atendimento e relacionamento com corretores.",
+      "Identificamos oportunidades e mostramos onde marketing, processos e tecnologia podem melhorar seus resultados."
+    ]
   },
   "faixa": [
     "Construtoras",
@@ -28,7 +30,7 @@
     "Litoral de SP"
   ],
   "paraQuem": {
-    "rotulo": "Esta call é para você",
+    "rotulo": "Esta reunião é para você",
     "titulo": "Para quem investe em marketing e sente que a venda não acompanha",
     "texto": "Se você se identifica com pelo menos uma destas situações, vale a conversa.",
     "imagem": "/img/apartamentos-mar.webp",
@@ -56,9 +58,9 @@
     ]
   },
   "recebe": {
-    "rotulo": "O que você leva da call",
+    "rotulo": "O que você leva da reunião",
     "titulo": "Uma conversa prática, sobre a sua operação",
-    "texto": "Sem apresentação genérica. Saímos da call com um caminho claro para os próximos meses.",
+    "texto": "Sem apresentação genérica. Saímos da reunião com um caminho claro para os próximos meses.",
     "itens": [
       {
         "titulo": "Diagnóstico rápido",
@@ -83,7 +85,7 @@
     ]
   },
   "honesta": {
-    "rotulo": "Quem conduz a call",
+    "rotulo": "Quem conduz a reunião",
     "nome": "Walter Araujo",
     "cargo": "Fundador da Led Marketing e Mr.Sites",
     "foto": "/img/walter-araujo.png",
@@ -97,12 +99,12 @@
     "destaque": "Mais de duas décadas transformando ideias em comunicação, comunicação em estratégia e tecnologia em ferramentas para negócios."
   },
   "final": {
-    "titulo": "Agende sua call estratégica",
+    "titulo": "Agende sua reunião estratégica",
     "texto": "Responda 2 etapas rápidas. O WhatsApp abre com a mensagem pronta para confirmarmos o melhor horário.",
-    "botao": "Quero agendar minha call"
+    "botao": "Quero agendar minha reunião"
   },
   "form": {
-    "titulo": "Agende sua call",
+    "titulo": "Agende sua reunião",
     "subtitulo": "Responda e confirmamos o horário pelo WhatsApp.",
     "etapa": "Etapa [n] de 2",
     "continuar": "Continuar",
@@ -160,6 +162,6 @@
     },
     "erro": "Preencha este campo.",
     "erroWhatsapp": "Escreva o WhatsApp com DDD.",
-    "mensagem": "Olá, Walter. Quero agendar uma call estratégica. Sou [nome], da [empresa] ([tipo]), em [cidade]. Maior desafio: [desafio]. Quero resolver: [quando]. Meu WhatsApp: [whatsapp]."
+    "mensagem": "Olá, Walter. Quero agendar uma reunião estratégica. Sou [nome], da [empresa] ([tipo]), em [cidade]. Maior desafio: [desafio]. Quero resolver: [quando]. Meu WhatsApp: [whatsapp]."
   }
 }

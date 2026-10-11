@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const titulo = 'font-[family-name:var(--font-titulo)] font-black tracking-[-0.03em]';
 
-/* Landing page para campanhas: agendar call estratégica com a Led. Sem menu, uma ação só. */
+/* Landing page para campanhas: agendar reunião estratégica com a Led. Sem menu, uma ação só. */
 export default function Reuniao() {
   const d = r.dobra;
   const faixa = [...r.faixa, ...r.faixa, ...r.faixa];
@@ -41,7 +41,9 @@ export default function Reuniao() {
                 <Palavras texto={d.tituloA} />{' '}
                 <Palavras texto={d.tituloB} inicio={contarPalavras(d.tituloA)} className="text-amarelo" />
               </h1>
-              <p data-revelar className="mt-6 max-w-[54ch] text-[1.0625rem] leading-relaxed text-sobre-azul-2">{d.texto}</p>
+              <div data-revelar className="mt-6 grid max-w-[54ch] gap-3 text-[1.0625rem] leading-relaxed text-sobre-azul-2">
+                {d.textos.map((t) => <p key={t}>{t}</p>)}
+              </div>
               <ul data-revelar className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
                 {d.provas.map((p) => (
                   <li key={p} className="flex items-center gap-2"><Icone nome="check" className="size-4 text-amarelo" />{p}</li>
@@ -92,7 +94,7 @@ export default function Reuniao() {
           </div>
         </section>
 
-        {/* O que você leva da call */}
+        {/* O que você leva da reunião */}
         <section className="tema-plantao bloco">
           <div className="container-site">
             <Rotulo className="text-center text-sobre-azul-2">{r.recebe.rotulo}</Rotulo>
