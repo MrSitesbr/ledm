@@ -13,7 +13,7 @@
     "rotulo": "Nossa equipe",
     "titulo": "Um time enxuto, com especialistas em cada etapa",
     "texto": "Trabalhamos com um núcleo fixo e uma rede de especialistas que entra em cada projeto conforme a necessidade. Assim cada cliente tem atendimento próximo e a competência certa em cada etapa.",
-    "imagem": "/img/escritorio-janela.webp",
+    "imagem": "/img/escritorio-janela-900.webp",
     "imagemAlt": "Equipe trabalhando em escritório",
     "funcoes": [
       { "titulo": "Estratégia e atendimento", "texto": "Entende a operação de cada cliente, define prioridades e acompanha os resultados.", "icone": "users" },
