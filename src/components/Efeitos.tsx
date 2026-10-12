@@ -69,9 +69,13 @@ export function Efeitos() {
           card.style.opacity = String(1 - p * 0.35);
         });
         parallax.forEach((el) => {
+          // data-parallax="fundo" (padrão): imagem ampliada que desliza dentro da moldura.
+          // data-parallax="peca": elemento solto (mockup) que flutua na velocidade de data-velocidade.
+          const peca = el.dataset.parallax === 'peca';
+          const vel = Number(el.dataset.velocidade ?? (peca ? -0.1 : -0.12));
           const r = el.parentElement!.getBoundingClientRect();
-          const desloca = (r.top + r.height / 2 - vh / 2) * -0.12;
-          el.style.transform = `translate3d(0, ${desloca}px, 0) scale(1.15)`;
+          const desloca = (r.top + r.height / 2 - vh / 2) * vel;
+          el.style.transform = `translate3d(0, ${desloca}px, 0)${peca ? '' : ' scale(1.15)'}`;
         });
       });
     };

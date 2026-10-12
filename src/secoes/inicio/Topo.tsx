@@ -45,7 +45,7 @@ export function Dobra() {
       <div className="container-site pb-6">
         <div data-revelar className="relative overflow-hidden rounded-[28px] border border-linha-azul" style={{ ['--atraso' as string]: '0.7s' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img data-parallax src={c.fundo} alt="" fetchPriority="high" className="absolute inset-0 size-full object-cover" />
+          <img data-parallax data-velocidade="-0.05" src={c.fundo} alt="" fetchPriority="high" className="absolute inset-0 size-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgb(7 11 38 / 0.92) 0%, rgb(7 11 38 / 0.7) 45%, rgb(7 11 38 / 0.25) 100%)' }} />
 
           <div className="relative grid items-center gap-10 p-7 text-left sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:p-14">
@@ -71,14 +71,18 @@ export function Dobra() {
             {/* Mockups: post 4:5 à frente, thumb 9:16 atrás e à direita */}
             <div className="relative mx-auto grid w-full max-w-[42rem] grid-cols-[1.15fr_0.85fr] items-end gap-2 sm:gap-3">
               <figure className="relative z-10">
-                <Image src={c.post.imagem} alt={c.post.alt} width={800} height={1001} sizes="(min-width: 1024px) 22vw, 50vw" className="h-auto w-full -rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)] lg:scale-[1.06]" />
+                <div data-parallax="peca" data-velocidade="-0.08">
+                  <Image src={c.post.imagem} alt={c.post.alt} width={800} height={1001} sizes="(min-width: 1024px) 22vw, 50vw" className="h-auto w-full -rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)] lg:scale-[1.06]" />
+                </div>
                 <figcaption className="mt-4 border-l-2 border-amarelo pl-3">
                   <span className="rotulo block !text-[0.7rem] text-sobre-azul">{c.post.rotulo}</span>
                   <span className="text-xs text-sobre-azul-3">{c.post.formato}</span>
                 </figcaption>
               </figure>
               <figure className="relative -ml-6 sm:-ml-10">
-                <Image src={c.video.imagem} alt={c.video.alt} width={720} height={1080} sizes="(min-width: 1024px) 18vw, 40vw" className="h-auto w-full rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)]" />
+                <div data-parallax="peca" data-velocidade="-0.18">
+                  <Image src={c.video.imagem} alt={c.video.alt} width={720} height={1080} sizes="(min-width: 1024px) 18vw, 40vw" className="h-auto w-full rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)]" />
+                </div>
                 <figcaption className="mt-4 ml-6 border-l-2 border-amarelo pl-3 sm:ml-10">
                   <span className="rotulo block !text-[0.7rem] text-sobre-azul">{c.video.rotulo}</span>
                   <span className="text-xs text-sobre-azul-3">{c.video.formato}</span>

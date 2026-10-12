@@ -241,6 +241,7 @@ p { text-wrap: pretty; }
 
 /* Imagem com parallax: maior que a moldura para não mostrar borda ao deslocar */
 [data-parallax] { transform: scale(1.15); will-change: transform; }
+[data-parallax='peca'] { transform: none; }
 [data-pilha] { transform-origin: center top; will-change: transform, filter, opacity; }
 
 /* Sanfona com abertura suave (como no Aura) */
