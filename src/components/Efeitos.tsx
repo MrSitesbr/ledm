@@ -75,7 +75,7 @@ export function Efeitos() {
           const vel = Number(el.dataset.velocidade ?? (peca ? -0.1 : -0.12));
           const r = el.parentElement!.getBoundingClientRect();
           const desloca = (r.top + r.height / 2 - vh / 2) * vel;
-          el.style.transform = `translate3d(0, ${desloca}px, 0)${peca ? '' : ' scale(1.15)'}`;
+          el.style.transform = `translate3d(0, ${desloca}px, 0)${peca ? '' : ` scale(${el.dataset.escala ?? 1.15})`}`;
         });
       });
     };
