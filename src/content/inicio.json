@@ -369,5 +369,47 @@
         "final": true
       }
     ]
+  },
+  "conteudo": {
+    "fundo": "/img/fundo-parallax.webp",
+    "rotulo": "Conteúdo que vende",
+    "tituloA": "Postagens e vídeos profissionais para",
+    "tituloB": "seus imóveis",
+    "texto": "Criamos artes e vídeos com design estratégico para destacar seus imóveis nas redes sociais e atrair mais interessados.",
+    "itens": [
+      {
+        "titulo": "Design estratégico",
+        "texto": "Foco em resultados e geração de interesse",
+        "icone": "chart"
+      },
+      {
+        "titulo": "Fotos e informações destacadas",
+        "texto": "O imóvel como protagonista",
+        "icone": "home"
+      },
+      {
+        "titulo": "Formatos para cada canal",
+        "texto": "Feed 4:5 · Reels e Stories 9:16",
+        "icone": "grid"
+      },
+      {
+        "titulo": "Identidade visual",
+        "texto": "A comunicação com a cara da sua marca",
+        "icone": "document"
+      }
+    ],
+    "post": {
+      "imagem": "/img/thumb-post-vs.webp",
+      "alt": "Exemplo de post para feed no formato 4:5, apartamento de 2 dormitórios na Guilhermina, Praia Grande",
+      "rotulo": "Post para redes sociais",
+      "formato": "Feed · Formato 4:5"
+    },
+    "video": {
+      "imagem": "/img/thumb-anuncio-vc.webp",
+      "alt": "Exemplo de thumb de vídeo no formato 9:16, apartamento de 2 dormitórios no Caiçara, Praia Grande",
+      "rotulo": "Thumb para vídeo",
+      "formato": "Reels · Stories · Anúncios · 9:16"
+    },
+    "aviso": "Peças ilustrativas"
   }
 }

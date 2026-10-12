@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import inicio from '@/content/inicio.json';
 import comum from '@/content/comum.json';
 import { Botao, Rotulo } from '@/components/Botao';
-import { Icone } from '@/components/Icone';
+import { Icone, type NomeIcone } from '@/components/Icone';
 import { Palavras, contarPalavras } from '@/components/Palavras';
 import { SliderFrases } from '@/components/SliderFrases';
 
@@ -12,6 +13,7 @@ const vidro = 'border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_1.5
    painel de foto com parallax e fragmentos de interface flutuando, abas embaixo. */
 export function Dobra() {
   const d = inicio.dobra;
+  const c = inicio.conteudo;
   const n1 = contarPalavras(d.tituloAntes);
   const n2 = n1 + 1;
   const n3 = n2 + contarPalavras(d.tituloApagado);
@@ -39,43 +41,51 @@ export function Dobra() {
         </div>
       </div>
 
-      {/* Painel de foto com parallax e fragmentos flutuantes */}
+      {/* Painel "Conteúdo que vende": fundo com parallax, texto e os dois formatos numa única composição */}
       <div className="container-site pb-6">
-        <div data-revelar className="relative h-[380px] overflow-hidden rounded-[28px] sm:h-[480px] lg:h-[560px]" style={{ ['--atraso' as string]: '0.7s' }}>
+        <div data-revelar className="relative overflow-hidden rounded-[28px] border border-linha-azul" style={{ ['--atraso' as string]: '0.7s' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img data-parallax src={d.imagem} alt={d.imagemAlt} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.15), rgb(7 11 38 / 0.75))' }} />
+          <img data-parallax src={c.fundo} alt="" fetchPriority="high" className="absolute inset-0 size-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgb(7 11 38 / 0.92) 0%, rgb(7 11 38 / 0.7) 45%, rgb(7 11 38 / 0.25) 100%)' }} />
 
-          {d.flutuantes.map((f, i) => (
-            <figure
-              key={f.titulo}
-              className={`absolute w-44 overflow-hidden rounded-2xl p-[1px] sm:w-64 lg:w-72 ${i === 0 ? 'top-[8%] left-[4%] -rotate-[4deg]' : 'top-[6%] right-[4%] hidden rotate-[3deg] sm:block'} ${vidro}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={f.imagem} alt="" loading="lazy" className="aspect-[4/3] w-full rounded-[15px] object-cover" />
-              <figcaption className="flex flex-col gap-0.5 px-3 py-2.5 text-left text-xs sm:text-sm">
-                <span className="font-semibold text-sobre-azul">{f.titulo}</span>
-                <span className="text-amarelo">{f.detalhe}</span>
-              </figcaption>
-            </figure>
-          ))}
-
-          <div className={`absolute bottom-[7%] left-1/2 w-[86%] max-w-md -translate-x-1/2 rounded-2xl p-4 text-left sm:left-[6%] sm:translate-x-0 ${vidro}`}>
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold text-sobre-azul">{d.painelRotulo}</span>
-              <span className="flex items-center gap-1.5 text-sobre-azul-2">
-                <span className="size-1.5 animate-pulse rounded-full bg-amarelo" />
-                {d.painelEstado}
-              </span>
+          <div className="relative grid items-center gap-10 p-7 text-left sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:p-14">
+            <div>
+              <p className="rotulo text-amarelo">{c.rotulo}</p>
+              <h2 className="mt-4 font-[family-name:var(--font-titulo)] text-[clamp(1.8rem,3vw,2.55rem)] leading-[1.06] font-black tracking-[-0.03em]">
+                {c.tituloA} <span className="text-amarelo">{c.tituloB}</span>
+              </h2>
+              <p className="mt-5 max-w-[46ch] text-[1.0625rem] leading-relaxed text-sobre-azul-2">{c.texto}</p>
+              <ul className="mt-8 grid border-t border-linha-azul sm:grid-cols-2">
+                {c.itens.map((it, i) => (
+                  <li key={it.titulo} className={`flex gap-3 border-b border-linha-azul py-4 ${i % 2 === 0 ? 'sm:pr-5' : 'sm:border-l sm:pl-5'}`}>
+                    <Icone nome={it.icone as NomeIcone} className="mt-0.5 size-5 shrink-0 text-amarelo" />
+                    <div>
+                      <p className="font-[family-name:var(--font-titulo)] text-[0.95rem] font-extrabold leading-tight">{it.titulo}</p>
+                      <p className="mt-1 text-sm text-sobre-azul-3">{it.texto}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-3 grid gap-2">
-              {d.chips.map((c) => (
-                <li key={c} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm text-sobre-azul">
-                  <Icone nome="check" className="size-4 text-amarelo" />
-                  {c}
-                </li>
-              ))}
-            </ul>
+
+            {/* Mockups: post 4:5 à frente, thumb 9:16 atrás e à direita */}
+            <div className="relative mx-auto grid w-full max-w-[42rem] grid-cols-[1.15fr_0.85fr] items-end gap-2 sm:gap-3">
+              <figure className="relative z-10">
+                <Image src={c.post.imagem} alt={c.post.alt} width={800} height={1001} sizes="(min-width: 1024px) 22vw, 50vw" className="h-auto w-full -rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)] lg:scale-[1.06]" />
+                <figcaption className="mt-4 border-l-2 border-amarelo pl-3">
+                  <span className="rotulo block !text-[0.7rem] text-sobre-azul">{c.post.rotulo}</span>
+                  <span className="text-xs text-sobre-azul-3">{c.post.formato}</span>
+                </figcaption>
+              </figure>
+              <figure className="relative -ml-6 sm:-ml-10">
+                <Image src={c.video.imagem} alt={c.video.alt} width={720} height={1080} sizes="(min-width: 1024px) 18vw, 40vw" className="h-auto w-full rotate-[3deg] drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.55)]" />
+                <figcaption className="mt-4 ml-6 border-l-2 border-amarelo pl-3 sm:ml-10">
+                  <span className="rotulo block !text-[0.7rem] text-sobre-azul">{c.video.rotulo}</span>
+                  <span className="text-xs text-sobre-azul-3">{c.video.formato}</span>
+                </figcaption>
+              </figure>
+              <p className="col-span-2 text-right text-[0.7rem] text-sobre-azul-3">{c.aviso}</p>
+            </div>
           </div>
         </div>
 
