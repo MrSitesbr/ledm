@@ -23,8 +23,8 @@ export function Dobra() {
       {/* Fundo: maquete 3D do Residencial Apolo orbitando com a rolagem, sob um filtro azul da marca */}
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[min(100svh,56rem)]">
         <Maquete3D modo="fundo" alvoId="topo" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(17 29 102 / 0.78) 0%, rgb(17 29 102 / 0.86) 55%, #111D66 100%)', mixBlendMode: 'normal' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 35%, rgb(10 18 64 / 0.55), transparent 70%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(17 29 102 / 0.58) 0%, rgb(17 29 102 / 0.68) 55%, #111D66 100%)', mixBlendMode: 'normal' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 35%, rgb(10 18 64 / 0.45), transparent 70%)' }} />
       </div>
       <div className="container-site relative flex flex-col items-center pt-10 pb-10 text-center sm:pt-14">
         <p data-revelar className="rotulo inline-flex items-center gap-2.5 rounded-full border border-linha-azul px-4 py-2 text-sobre-azul" style={{ background: 'var(--color-azul-noite)' }}>
