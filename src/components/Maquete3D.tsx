@@ -163,6 +163,9 @@ export function Maquete3D({
         sol.shadow.camera.updateProjectionMatrix();
         pronto3d = true;
         setPronto(true);
+      }).catch((erro) => {
+        modeloCache = null; // permite tentar de novo numa próxima montagem
+        console.error("Maquete 3D: falha ao carregar o modelo", erro);
       });
 
       const alvo = document.getElementById(alvoId);
@@ -215,21 +218,29 @@ export function Maquete3D({
       };
     };
 
-    // Só carrega o 3D quando o palco chega perto da tela
-    const gatilho = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          gatilho.disconnect();
-          iniciar();
-        }
-      },
-      { rootMargin: '300px' },
-    );
-    gatilho.observe(canvas);
+    // Carregamento sob demanda (para o PageSpeed):
+    // - fundo do topo: só na primeira interação (rolar, mover o mouse, tocar, teclar);
+    // - seção: quando o palco chega perto da tela.
+    // O arquivo .glb é baixado uma única vez (modeloCache) e reaproveitado pelos dois.
+    let iniciado = false;
+    const disparar = () => {
+      if (iniciado) return;
+      iniciado = true;
+      desligar();
+      iniciar();
+    };
+    const eventos = ['scroll', 'pointermove', 'pointerdown', 'touchstart', 'keydown', 'wheel'] as const;
+    const gatilho = new IntersectionObserver(([e]) => e.isIntersecting && disparar(), { rootMargin: '300px' });
+    const desligar = () => {
+      gatilho.disconnect();
+      eventos.forEach((ev) => window.removeEventListener(ev, disparar));
+    };
+    if (modo === 'fundo') eventos.forEach((ev) => window.addEventListener(ev, disparar, { once: true, passive: true }));
+    else gatilho.observe(canvas);
 
     return () => {
       cancelado = true;
-      gatilho.disconnect();
+      desligar();
       limpar();
     };
   }, [modo, alvoId]);

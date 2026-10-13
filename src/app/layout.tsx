@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
 import { SpriteIcones } from '@/components/Icone';
+import { RolagemTopo } from '@/components/RolagemTopo';
 import comum from '@/content/comum.json';
 import { empresa } from '@/lib/dados';
 import './globals.css';
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a href="#conteudo" className="pular">{comum.pularConteudo}</a>
         <SpriteIcones />
+        <RolagemTopo />
         {children}
       </body>
     </html>
