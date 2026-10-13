@@ -411,5 +411,42 @@
       "formato": "Reels · Stories · Anúncios · 9:16"
     },
     "aviso": "Peças ilustrativas"
+  },
+  "maquete": {
+    "rotulo": "Seu empreendimento antes de existir",
+    "titulo": "Maquetes virtuais interativas possibilitam novas experiências",
+    "dica": "Role para orbitar",
+    "carregando": "Carregando modelo 3D…",
+    "etapas": [
+      {
+        "no": "01 · Maquete virtual",
+        "titulo": "Fiel ao projeto, até o último detalhe",
+        "texto": "Transformamos o projeto da construtora em um modelo 3D realista: fachada, materiais, esquadrias e entorno.",
+        "em": 0.14
+      },
+      {
+        "no": "02 · Todos os ângulos",
+        "titulo": "Câmera livre, sem limite de enquadramento",
+        "texto": "Mostramos o prédio de cima, de lado e a pé, em ângulos que nem uma fotografia real alcança.",
+        "em": 0.36
+      },
+      {
+        "no": "03 · Divulgação",
+        "titulo": "Material para vender na planta",
+        "texto": "Imagens, vídeos, animações e peças para anúncios, stands, redes sociais e site do lançamento.",
+        "em": 0.58
+      },
+      {
+        "no": "04 · Experiência",
+        "titulo": "O cliente vê o prédio antes da obra",
+        "texto": "Do alto até a entrada, a visita virtual faz o comprador imaginar a vida no empreendimento.",
+        "em": 0.8
+      }
+    ],
+    "fimRotulo": "Demonstração",
+    "fimTitulo": "Este é um modelo de demonstração. O próximo pode ser o seu empreendimento.",
+    "fimTexto": "Maquetes virtuais, imagens e vídeos de lançamento para construtoras e incorporadoras.",
+    "credito": "“Residencial Apolo” por Walter Araujo, CC-BY-4.0",
+    "creditoLink": "https://sketchfab.com/3d-models/residencial-apolo-e93b8e08278e433585639a0626e33e1c"
   }
 }

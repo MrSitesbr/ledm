@@ -5,6 +5,7 @@ import { Botao, Rotulo } from '@/components/Botao';
 import { Icone, type NomeIcone } from '@/components/Icone';
 import { Palavras, contarPalavras } from '@/components/Palavras';
 import { SliderFrases } from '@/components/SliderFrases';
+import { Maquete3D } from '@/components/Maquete3D';
 
 const titulo = 'font-[family-name:var(--font-titulo)] font-black tracking-[-0.03em]';
 const vidro = 'border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_1.5rem_4rem_-1rem_rgb(0_0_0/0.6)]';
@@ -18,8 +19,14 @@ export function Dobra() {
   const n2 = n1 + 1;
   const n3 = n2 + contarPalavras(d.tituloApagado);
   return (
-    <section className="tema-plantao relative overflow-hidden" aria-labelledby="titulo-dobra">
-      <div className="container-site flex flex-col items-center pt-10 pb-10 text-center sm:pt-14">
+    <section id="topo" className="tema-plantao relative overflow-hidden" aria-labelledby="titulo-dobra">
+      {/* Fundo: maquete 3D do Residencial Apolo orbitando com a rolagem, sob um filtro azul da marca */}
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[min(100svh,56rem)]">
+        <Maquete3D modo="fundo" alvoId="topo" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(17 29 102 / 0.78) 0%, rgb(17 29 102 / 0.86) 55%, #111D66 100%)', mixBlendMode: 'normal' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 35%, rgb(10 18 64 / 0.55), transparent 70%)' }} />
+      </div>
+      <div className="container-site relative flex flex-col items-center pt-10 pb-10 text-center sm:pt-14">
         <p data-revelar className="rotulo inline-flex items-center gap-2.5 rounded-full border border-linha-azul px-4 py-2 text-sobre-azul" style={{ background: 'var(--color-azul-noite)' }}>
           <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: 'var(--grad-luz)' }} />
           {d.rotulo}
@@ -42,7 +49,7 @@ export function Dobra() {
       </div>
 
       {/* Painel "Conteúdo que vende": fundo com parallax, texto e os dois formatos numa única composição */}
-      <div className="container-site pb-6">
+      <div className="container-site relative pb-6">
         <div data-revelar className="relative overflow-hidden rounded-[28px] border border-linha-azul" style={{ ['--atraso' as string]: '0.7s' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img data-parallax data-velocidade="0.05" data-escala="1.3" src={c.fundo} alt="" fetchPriority="high" className="absolute inset-0 size-full object-cover" />
