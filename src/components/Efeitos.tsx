@@ -61,6 +61,10 @@ export function Efeitos() {
         const vh = window.innerHeight;
         pilhas.forEach((card, i) => {
           if (i === pilhas.length - 1) return;
+          if (window.innerWidth < 1024) {
+            card.style.transform = card.style.filter = card.style.opacity = '';
+            return;
+          }
           const r = card.parentElement!.getBoundingClientRect();
           const p = Math.min(Math.max(-r.top / (r.height - vh * 0.8), 0), 1);
           const giro = p * (i % 2 ? 2.5 : -2.5);

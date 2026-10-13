@@ -62,7 +62,12 @@ export function Maquete3D({
       if (cancelado) return;
       const leve = window.innerWidth < 700 || modo === 'fundo';
 
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: !leve, alpha: true });
+      let renderer: THREE_NS.WebGLRenderer;
+      try {
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: !leve, alpha: true });
+      } catch {
+        return; // sem WebGL (aparelho antigo ou bloqueado): a página segue sem o 3D
+      }
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 0.95;

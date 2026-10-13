@@ -139,39 +139,63 @@
     "itens": [
       {
         "nome": "Vendebens",
-        "cliente": "Vendebens Imóveis",
+        "destaque": "",
+        "resumo": "Desenvolvemos uma estrutura digital para a Vendebens apresentar seus imóveis de forma mais organizada e profissional, conectando site, conteúdo, vídeos e ferramentas para apoiar a divulgação e o trabalho comercial da imobiliária.",
         "segmento": "Imobiliária",
-        "resumo": "[PREENCHER: o que a Led fez para a Vendebens, em uma ou duas frases]",
-        "fizemos": "[PREENCHER]",
-        "entrega": "[PREENCHER]",
-        "imagem": "/img/apartamentos-mar-900.webp"
+        "fizemos": [
+          "Estratégia digital",
+          "Site imobiliário",
+          "Conteúdo e vídeos",
+          "Ferramentas comerciais"
+        ],
+        "entrega": [
+          "Site responsivo",
+          "Tabela de imóveis para corretores",
+          "Calculadora imobiliária",
+          "Landing pages e campanhas"
+        ],
+        "desktop": "/img/cases/vendebens-desktop.webp",
+        "desktopAlt": "Site da Vendebens Imóveis em um notebook",
+        "desktopTam": [
+          1100,
+          757
+        ],
+        "mobile": "/img/cases/vendebens-mobile.webp",
+        "mobileAlt": "Busca de imóveis da Vendebens no celular",
+        "mobileTam": [
+          560,
+          1010
+        ]
       },
       {
-        "nome": "Grupo Exito",
-        "cliente": "Construtora Grupo Exito",
-        "segmento": "Construtora e incorporadora",
-        "resumo": "[PREENCHER: o que a Led fez para o Grupo Exito, em uma ou duas frases]",
-        "fizemos": "[PREENCHER]",
-        "entrega": "[PREENCHER]",
-        "imagem": "/img/fachada-construtora-900.webp"
-      },
-      {
-        "nome": "Kennedy",
-        "cliente": "Coworking Kennedy",
-        "segmento": "Coworking",
-        "resumo": "[PREENCHER: o que a Led fez para o Coworking Kennedy, em uma ou duas frases]",
-        "fizemos": "[PREENCHER]",
-        "entrega": "[PREENCHER]",
-        "imagem": "/img/escritorio-janela-900.webp"
-      },
-      {
-        "nome": "013",
-        "cliente": "Coworking 013",
-        "segmento": "Coworking",
-        "resumo": "[PREENCHER: o que a Led fez para o Coworking 013, em uma ou duas frases]",
-        "fizemos": "[PREENCHER]",
-        "entrega": "[PREENCHER]",
-        "imagem": "/img/mesa-trabalho-900.webp"
+        "nome": "Êxito Incorporações",
+        "destaque": "Mais de 11 anos depois, uma nova estrutura digital",
+        "resumo": "Depois de mais de 11 anos com o mesmo site, a Êxito precisava de uma estrutura digital mais atual e funcional. Desenvolvemos um novo site e uma solução que permite à própria empresa controlar e atualizar sua tabela de imóveis para os corretores.",
+        "segmento": "Incorporadora",
+        "fizemos": [
+          "Redesign digital",
+          "Novo site institucional",
+          "Estrutura de imóveis",
+          "Gestão da tabela comercial"
+        ],
+        "entrega": [
+          "Site responsivo",
+          "Painel de gerenciamento",
+          "Tabela de imóveis para corretores",
+          "Controle de unidades e disponibilidade"
+        ],
+        "desktop": "/img/cases/exito-desktop.webp",
+        "desktopAlt": "Novo site da Êxito Incorporações em um tablet",
+        "desktopTam": [
+          1100,
+          818
+        ],
+        "mobile": "/img/cases/exito-mobile.webp",
+        "mobileAlt": "Tabela de empreendimentos para corretores da Êxito no celular",
+        "mobileTam": [
+          560,
+          950
+        ]
       }
     ]
   },

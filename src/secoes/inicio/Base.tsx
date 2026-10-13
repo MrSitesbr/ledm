@@ -41,40 +41,49 @@ export function Cases() {
       <div className="container-site mt-12">
         {c.itens.map((it, i) => {
           const ultimo = i === c.itens.length - 1;
+          const lista = (rotulo: string, itens: string[] | string) => (
+            <div>
+              <dt className="rotulo !text-[0.7rem] text-sobre-azul-3">{rotulo}</dt>
+              <dd className="mt-1.5 grid gap-0.5 text-sm leading-snug text-sobre-azul">
+                {(Array.isArray(itens) ? itens : [itens]).map((x) => <span key={x}>{x}</span>)}
+              </dd>
+            </div>
+          );
           return (
-            <div key={it.nome} className={ultimo ? 'pb-[var(--bloco)]' : 'h-[115vh]'}>
+            <div key={it.nome} className={ultimo ? 'pb-[var(--bloco)]' : 'lg:h-[115vh]'}>
+              {/* Case de portfólio em 4 áreas: descrição · celular + notebook (sobrepostos) · informações */}
               <article
                 data-pilha
-                className="sticky top-24 grid min-h-[30rem] grid-cols-1 gap-8 overflow-hidden rounded-[28px] p-7 text-sobre-azul sm:p-10 lg:h-[36rem] lg:grid-cols-[1fr_1.1fr_1fr] lg:items-center"
-                style={{ background: brilhos[i % brilhos.length] }}
+                className="relative grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[28px] p-7 text-sobre-azul max-lg:mb-6 sm:p-10 lg:sticky lg:top-24 lg:min-h-[34rem] lg:grid-cols-[26fr_54fr_20fr] lg:gap-6"
+                style={{ background: 'linear-gradient(160deg, #0A1240 0%, #070B26 100%)' }}
               >
-                <p className="max-w-[34ch] text-[1.0625rem] leading-relaxed text-sobre-azul-2 lg:self-center">{it.resumo}</p>
+                {/* 01 · Descrição */}
+                <div className="relative">
+                  <h3 className={`${titulo} flex items-baseline gap-3 text-[clamp(2rem,3.1vw,3rem)] leading-[1.02]`}>
+                    <span className="numeros text-sm font-bold tracking-normal text-sobre-azul-3">{String(i + 1).padStart(2, '0')}</span>
+                    <span>{it.nome}</span>
+                  </h3>
+                  {it.destaque && <p className="mt-4 font-[family-name:var(--font-titulo)] font-bold leading-snug text-amarelo">{it.destaque}</p>}
+                  <p className="mt-4 text-[0.95rem] leading-relaxed text-sobre-azul-2">{it.resumo}</p>
+                </div>
 
-                <figure className={`mx-auto w-full max-w-sm overflow-hidden rounded-2xl ${i % 2 ? 'rotate-[2deg]' : '-rotate-[2deg]'} ${vidro}`}>
-                  <Image src={it.imagem} alt="" width={900} height={600} className="aspect-[4/3] w-full object-cover" />
-                  <figcaption className="flex items-center justify-between px-4 py-3 text-sm">
-                    <span className="font-semibold">{it.cliente}</span>
-                    <span className="text-amarelo">{it.segmento}</span>
-                  </figcaption>
-                </figure>
+                {/* 02 + 03 · Mockups soltos: notebook maior, celular à frente invadindo o notebook */}
+                <div className="relative mx-auto grid w-full max-w-[40rem] grid-cols-[20fr_80fr] items-end">
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-[10%] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgb(26 42 138 / 0.55), transparent 70%)' }} />
+                  <div data-parallax="peca" data-velocidade="0.1" className="relative z-10 -mr-[60%] mb-[-6%]">
+                    <Image src={it.mobile} alt={it.mobileAlt} width={it.mobileTam[0]} height={it.mobileTam[1]} sizes="(min-width: 1024px) 12vw, 30vw" className="h-auto w-full -rotate-[4deg] drop-shadow-[0_1.5rem_2rem_rgb(0_0_0/0.55)]" />
+                  </div>
+                  <div data-parallax="peca" data-velocidade="0.04" className="relative">
+                    <Image src={it.desktop} alt={it.desktopAlt} width={it.desktopTam[0]} height={it.desktopTam[1]} sizes="(min-width: 1024px) 34vw, 70vw" className="h-auto w-full drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.5)]" />
+                  </div>
+                </div>
 
-                <dl className="grid gap-4 text-sm lg:text-right">
-                  {[
-                    [c.metaSegmento, it.segmento],
-                    [c.metaFizemos, it.fizemos],
-                    [c.metaEntrega, it.entrega],
-                  ].map(([k, v]) => (
-                    <div key={k}>
-                      <dt className="rotulo text-sobre-azul-3">{k}</dt>
-                      <dd className="mt-1 text-sobre-azul">{v}</dd>
-                    </div>
-                  ))}
+                {/* 04 · Informações */}
+                <dl className="relative grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
+                  {lista(c.metaSegmento, it.segmento)}
+                  {lista(c.metaFizemos, it.fizemos)}
+                  {lista(c.metaEntrega, it.entrega)}
                 </dl>
-
-                <h3 className={`${titulo} flex items-baseline gap-3 text-[clamp(2.25rem,6vw,4rem)] leading-none lg:col-span-3 lg:self-end`}>
-                  <span className="numeros text-sm font-bold tracking-normal text-sobre-azul-3">{String(i + 1).padStart(2, '0')}</span>
-                  {it.nome}
-                </h3>
               </article>
             </div>
           );
