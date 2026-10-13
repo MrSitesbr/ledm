@@ -191,10 +191,10 @@ export function Maquete3D({
         } else {
           // Fundo do hero: giro lento contínuo + a rolagem aproxima e desce a câmera
           const ang = 0.6 + t * 0.00004 + p * 1.2;
-          const rad = lerp(R * 1.3, R * 0.95, p);
+          const rad = lerp(R * 0.62, R * 0.42, p);
           cam.position.set(Math.cos(ang) * rad, lerp(H * 0.7, H * 0.35, p), Math.sin(ang) * rad);
           cam.lookAt(0, H * 0.45, 0);
-          cam.fov = 40;
+          cam.fov = 36;
         }
         cam.updateProjectionMatrix();
         renderer.render(scene, cam);
