@@ -20,13 +20,13 @@ export function Maquete() {
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <Maquete3D alvoId="maquete" aoProgresso={setP} />
         {/* Leitura: escurece embaixo e à esquerda, onde ficam os textos */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.55) 0%, transparent 30%, transparent 55%, rgb(7 11 38 / 0.85) 100%), linear-gradient(90deg, rgb(7 11 38 / 0.6), transparent 55%)' }} />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.7) 0%, transparent 35%, transparent 50%, rgb(7 11 38 / 0.92) 100%), linear-gradient(90deg, rgb(7 11 38 / 0.8), rgb(7 11 38 / 0.35) 45%, transparent 70%)' }} />
         <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true" style={{ zIndex: -1 }}>{m.carregando}</p>
 
         {/* Título de abertura */}
-        <div className="container-site relative pt-24 text-center sm:pt-28" style={{ opacity: clamp(1 - p * 8, 0, 1) }}>
+        <div className="relative pt-24 pr-6 pl-[max(6vw,1.5rem)] text-left sm:pt-28" style={{ opacity: clamp(1 - p * 8, 0, 1), textShadow: '0 2px 18px rgb(7 11 38 / 0.6)' }}>
           <p className="rotulo text-amarelo">{m.rotulo}</p>
-          <h2 id="titulo-maquete" className="mx-auto mt-4 max-w-[22ch] font-[family-name:var(--font-titulo)] text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.06] font-black tracking-[-0.03em]">
+          <h2 id="titulo-maquete" className="mt-4 max-w-[22ch] font-[family-name:var(--font-titulo)] text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.06] font-black tracking-[-0.03em]">
             {m.titulo}
           </h2>
           <p className="rotulo mt-8 text-sobre-azul-3">{m.dica} ↓</p>
@@ -50,10 +50,10 @@ export function Maquete() {
         })}
 
         {/* Fim: chamada */}
-        <div className="absolute inset-x-0 bottom-[10vh] px-6 text-center transition-all duration-700" style={{ opacity: p > 0.93 ? 1 : 0, transform: p > 0.93 ? 'none' : 'translateY(24px)', pointerEvents: p > 0.93 ? 'auto' : 'none' }}>
+        <div className="absolute bottom-[10vh] left-[max(6vw,1.5rem)] max-w-[min(560px,84vw)] text-left transition-all duration-700" style={{ textShadow: '0 2px 18px rgb(7 11 38 / 0.6)', opacity: p > 0.93 ? 1 : 0, transform: p > 0.93 ? 'none' : 'translateY(24px)', pointerEvents: p > 0.93 ? 'auto' : 'none' }}>
           <p className="rotulo text-amarelo">{m.fimRotulo}</p>
-          <h3 className="mx-auto mt-3 max-w-[26ch] font-[family-name:var(--font-titulo)] text-[clamp(1.4rem,2.8vw,2.2rem)] leading-[1.1] font-black">{m.fimTitulo}</h3>
-          <p className="mx-auto mt-3 max-w-[48ch] text-sobre-azul-2">{m.fimTexto}</p>
+          <h3 className="mt-3 max-w-[26ch] font-[family-name:var(--font-titulo)] text-[clamp(1.4rem,2.8vw,2.2rem)] leading-[1.1] font-black">{m.fimTitulo}</h3>
+          <p className="mt-3 max-w-[48ch] text-sobre-azul-2">{m.fimTexto}</p>
           <Botao href="#contato" className="mt-6">{comum.botaoPrincipal}</Botao>
         </div>
 
@@ -98,10 +98,10 @@ export function Drone() {
           ))}
           {!carregado && <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>}
           <Drone3D alvoId="drone-rolagem" aoProgresso={setP} aoCarregar={() => setCarregado(true)} />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55))' }} />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55)), linear-gradient(90deg, rgb(5 10 25 / 0.7), rgb(5 10 25 / 0.3) 45%, transparent 70%), linear-gradient(180deg, transparent 55%, rgb(5 10 25 / 0.75) 100%)' }} />
 
           {/* Título de abertura */}
-          <div className="absolute top-[calc(6rem+2vh)] left-[max(6vw,1.5rem)] max-w-[min(560px,88vw)] lg:top-1/2 lg:-translate-y-[55%]" style={{ opacity: clamp(1 - p * 28, 0, 1) }}>
+          <div className="absolute top-[calc(6rem+2vh)] left-[max(6vw,1.5rem)] max-w-[min(560px,88vw)] lg:top-1/2 lg:-translate-y-[55%]" style={{ opacity: clamp(1 - p * 28, 0, 1), textShadow: '0 2px 18px rgb(5 10 25 / 0.6)' }}>
             <p className="rotulo text-amarelo">{dr.rotulo}</p>
             <h2 id="titulo-drone" className="mt-4 font-[family-name:var(--font-titulo)] text-[clamp(1.8rem,4.6vw,3.4rem)] leading-[1.06] font-black tracking-[-0.03em]">
               {dr.titulo}
@@ -148,10 +148,10 @@ export function Drone() {
       </div>
 
       {/* Fechamento com chamada */}
-      <div className="container-site py-[12vh] text-center">
+      <div className="container-site py-[12vh] text-left">
         <p className="rotulo text-amarelo">{dr.fimRotulo}</p>
-        <h3 className="mx-auto mt-3 max-w-[26ch] font-[family-name:var(--font-titulo)] text-[clamp(1.5rem,3vw,2.4rem)] leading-[1.1] font-black tracking-[-0.02em]">{dr.fimTitulo}</h3>
-        <p className="mx-auto mt-4 max-w-[52ch] text-sobre-azul-2">{dr.fimTexto}</p>
+        <h3 className="mt-3 max-w-[26ch] font-[family-name:var(--font-titulo)] text-[clamp(1.5rem,3vw,2.4rem)] leading-[1.1] font-black tracking-[-0.02em]">{dr.fimTitulo}</h3>
+        <p className="mt-4 max-w-[52ch] text-sobre-azul-2">{dr.fimTexto}</p>
         <Botao href="#contato" className="mt-7">{comum.botaoPrincipal}</Botao>
       </div>
     </section>
