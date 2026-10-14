@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import comum from '@/content/comum.json';
 import { Logo } from './Logo';
@@ -10,11 +11,52 @@ import { Icone } from './Icone';
  * Cabeçalho fixo, tema Plantão.
  * O menu completo aparece a partir de 1360px (antes disso, gaveta). O botão amarelo só aparece depois que o botão da primeira dobra (#cta-dobra) sai da tela.
  * Em páginas sem esse botão, aparece sempre. No celular o menu vira gaveta e o botão fica fora dela.
+ * O link da seção que está na altura de leitura (40% da tela) fica destacado em amarelo.
  */
 export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
   const [aberto, setAberto] = useState(false);
   const [mostrarBotao, setMostrarBotao] = useState(false);
   const botaoMenu = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+  const [ativo, setAtivo] = useState<string | null>(null);
+
+  // Link ativo: página atual (ex.: /quem-somos) ou a seção da home que cruza a linha de leitura
+  useEffect(() => {
+    const pagina = comum.menu.find((i) => !i.href.includes('#') && i.href === pathname);
+    if (pagina) {
+      setAtivo(pagina.href);
+      return;
+    }
+    if (pathname !== '/') {
+      setAtivo(null);
+      return;
+    }
+    const secoes = comum.menu
+      .filter((i) => i.href.startsWith('/#'))
+      .map((i) => ({ href: i.href, el: document.getElementById(i.href.slice(2)) }))
+      .filter((s): s is { href: string; el: HTMLElement } => !!s.el);
+    let raf = 0;
+    const medir = () => {
+      raf = 0;
+      const linha = window.innerHeight * 0.4;
+      const atual = secoes.find(({ el }) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= linha && r.bottom > linha;
+      });
+      setAtivo(atual ? atual.href : null);
+    };
+    const agendar = () => {
+      if (!raf) raf = requestAnimationFrame(medir);
+    };
+    medir();
+    window.addEventListener('scroll', agendar, { passive: true });
+    window.addEventListener('resize', agendar);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', agendar);
+      window.removeEventListener('resize', agendar);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const alvo = document.getElementById('cta-dobra');
@@ -53,7 +95,10 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 items-center rounded-[var(--radius-botao)] px-2.5 font-[family-name:var(--font-titulo)] text-[0.82rem] whitespace-nowrap font-bold tracking-[0.04em] text-sobre-azul-2 transition-colors hover:text-sobre-azul"
+                    aria-current={ativo === item.href ? 'location' : undefined}
+                    className={`inline-flex min-h-11 items-center rounded-[var(--radius-botao)] px-2.5 font-[family-name:var(--font-titulo)] text-[0.82rem] whitespace-nowrap font-bold tracking-[0.04em] transition-colors duration-300 ${
+                      ativo === item.href ? 'bg-amarelo text-azul-plantao' : 'text-sobre-azul-2 hover:text-sobre-azul'
+                    }`}
                   >
                     {item.rotulo}
                   </Link>
@@ -105,7 +150,8 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
                 <Link
                   href={item.href}
                   onClick={() => setAberto(false)}
-                  className="flex min-h-12 items-center border-b border-linha-azul font-[family-name:var(--font-titulo)] text-base font-bold text-sobre-azul"
+                  aria-current={ativo === item.href ? 'location' : undefined}
+                  className={`flex min-h-12 items-center border-b border-linha-azul font-[family-name:var(--font-titulo)] text-base font-bold ${ativo === item.href ? 'text-amarelo' : 'text-sobre-azul'}`}
                 >
                   {item.rotulo}
                 </Link>
