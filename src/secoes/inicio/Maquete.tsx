@@ -85,6 +85,7 @@ const nuvens = [
 
 export function Drone() {
   const [p, setP] = useState(0);
+  const [carregado, setCarregado] = useState(false);
   const fim = p > 0.97;
   return (
     <section id="drone" className="relative text-sobre-azul" style={{ background: 'var(--color-azul-fundo)' }} aria-labelledby="titulo-drone">
@@ -95,8 +96,8 @@ export function Drone() {
           {nuvens.map((n) => (
             <div key={n.left} aria-hidden="true" className="absolute h-[9vmin] rounded-[50%] bg-white/12 blur-[14px]" style={{ left: n.left, top: n.top, width: n.w, transform: `translate3d(${p * 600 * n.s * 0.25 - p * 8}px, ${-p * 600 * n.s * 0.12}px, 0)` }} />
           ))}
-          <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>
-          <Drone3D alvoId="drone-rolagem" aoProgresso={setP} />
+          {!carregado && <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>}
+          <Drone3D alvoId="drone-rolagem" aoProgresso={setP} aoCarregar={() => setCarregado(true)} />
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55))' }} />
 
           {/* Título de abertura */}

@@ -40,11 +40,13 @@ const HELICES: [string, string, number][] = [
   ['polySurface95_29', 'polySurface102_34', 1],
 ];
 
-export function Drone3D({ alvoId, aoProgresso }: { alvoId: string; aoProgresso?: (p: number) => void }) {
+export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; aoProgresso?: (p: number) => void; /** avisa quando o carregamento termina (com ou sem sucesso) */ aoCarregar?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [pronto, setPronto] = useState(false);
   const progressoRef = useRef(aoProgresso);
   progressoRef.current = aoProgresso;
+  const carregarRef = useRef(aoCarregar);
+  carregarRef.current = aoCarregar;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -65,6 +67,7 @@ export function Drone3D({ alvoId, aoProgresso }: { alvoId: string; aoProgresso?:
       try {
         renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       } catch {
+        carregarRef.current?.();
         return; // sem WebGL: a seção segue só com os textos
       }
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -210,8 +213,12 @@ export function Drone3D({ alvoId, aoProgresso }: { alvoId: string; aoProgresso?:
           m.position.set(-c.x * k, -c.y * k, -c.z * k);
           pronto3d = true;
           setPronto(true);
+          carregarRef.current?.();
         })
-        .catch((erro) => console.error('Drone 3D: falha ao carregar o modelo', erro));
+        .catch((erro) => {
+          console.error('Drone 3D: falha ao carregar o modelo', erro);
+          carregarRef.current?.();
+        });
 
       const alvo = document.getElementById(alvoId);
       const progresso = () => {
