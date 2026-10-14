@@ -103,10 +103,10 @@ export function Drone() {
     com3d.current = true;
     setP(v);
   };
-  const fim = p > 0.97;
+  const fim = p > 0.79; // de 0.79 até soltar a seção: fechamento visível
   return (
     <section id="drone" className="relative text-sobre-azul" style={{ background: 'var(--color-azul-fundo)' }} aria-labelledby="titulo-drone">
-      <div id="drone-rolagem" className="relative h-[600vh]">
+      <div id="drone-rolagem" className="relative h-[720vh]">
         <div className="sticky top-0 h-[100svh] overflow-hidden" style={{ background: 'linear-gradient(#071328 0%, #12305e 40%, #2f6db5 75%, #8cc4f5 100%)' }}>
           {/* Sol e nuvens (parallax) */}
           <div aria-hidden="true" className="absolute left-[68%] top-[62%] size-[44vmin] rounded-full opacity-60" style={{ background: 'radial-gradient(circle, #eaf5ff, #8cc4ff 40%, transparent 70%)', transform: `translate3d(${-p * 18}vw, ${-p * 30}vh, 0)` }} />

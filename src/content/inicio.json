@@ -484,35 +484,35 @@
         "titulo": "Imagens aéreas em alta resolução",
         "texto": "Drones com câmera estabilizada e piloto habilitado registram cada detalhe do imóvel com qualidade de cinema.",
         "imagem": "/img/01-tecnologia.webp",
-        "em": 0.12
+        "em": 0.1
       },
       {
         "no": "02 · Andamento da obra",
         "titulo": "Acompanhe a obra do início à entrega",
         "texto": "Gravações periódicas mostram a evolução da construção e dão transparência a investidores e compradores.",
         "imagem": "/img/02-obra.webp",
-        "em": 0.32
+        "em": 0.26
       },
       {
         "no": "03 · Localização",
         "titulo": "Mostre a localização privilegiada",
         "texto": "Do alto, o cliente enxerga o entorno: acessos, comércio, áreas verdes e tudo que valoriza o empreendimento.",
         "imagem": "/img/03-localizacao.webp",
-        "em": 0.52
+        "em": 0.42
       },
       {
         "no": "04 · Prédio pronto",
         "titulo": "O resultado final, com impacto",
         "texto": "Imagens do edifício entregue, fachada, áreas comuns e vista, em movimentos que valorizam a arquitetura.",
         "imagem": "/img/04-predio-pronto.webp",
-        "em": 0.72
+        "em": 0.58
       },
       {
         "no": "05 · Divulgação",
         "titulo": "Material pronto para vender",
         "texto": "Vídeos e fotos para anúncios, redes sociais, site e stand de vendas, no padrão que a sua construtora merece.",
         "imagem": "/img/05-divulgacao.webp",
-        "em": 0.9
+        "em": 0.72
       }
     ],
     "fimRotulo": "Vamos gravar o seu imóvel",
