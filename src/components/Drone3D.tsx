@@ -65,7 +65,7 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
 
       let renderer: THREE_NS.WebGLRenderer;
       try {
-        renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: !leve, alpha: true });
       } catch {
         carregarRef.current?.();
         return; // sem WebGL: a seção segue só com os textos
@@ -74,7 +74,7 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 0.8;
       renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.shadowMap.type = THREE.PCFShadowMap;
 
       const scene = new THREE.Scene();
       const cam = new THREE.PerspectiveCamera(40, 1, 0.1, 500);
@@ -103,7 +103,7 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
       const sol = new THREE.DirectionalLight(0xffe2b8, 1.9);
       sol.position.set(9, 14, 8);
       sol.castShadow = true;
-      const sm = leve ? 1024 : 2048;
+      const sm = leve ? 512 : 1024;
       sol.shadow.mapSize.set(sm, sm);
       sol.shadow.bias = -0.0004;
       sol.shadow.normalBias = 0.03;
@@ -120,7 +120,7 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
       const ajustar = () => {
         const w = palco.clientWidth;
         const h = palco.clientHeight;
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, leve ? 1.5 : 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, leve ? 1.25 : 1.5));
         renderer.setSize(w, h, false);
         cam.aspect = w / h;
         // No desktop o drone fica um pouco à direita, deixando espaço para os textos
@@ -140,7 +140,7 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
       loader.setMeshoptDecoder(MeshoptDecoder);
       loader
         .loadAsync('/3d/drone.glb')
-        .then((g) => {
+        .then(async (g) => {
           if (cancelado) return;
           const m = g.scene;
           scene.add(m);
@@ -211,6 +211,9 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
           pivo.add(m);
           m.scale.setScalar(k);
           m.position.set(-c.x * k, -c.y * k, -c.z * k);
+          // Prepara os shaders em segundo plano, sem congelar a tela
+          await renderer.compileAsync(scene, cam).catch(() => {});
+          if (cancelado) return;
           pronto3d = true;
           setPronto(true);
           carregarRef.current?.();
@@ -277,8 +280,11 @@ export function Drone3D({ alvoId, aoProgresso, aoCarregar }: { alvoId: string; a
       iniciado = true;
       gatilho.disconnect();
       iniciar();
-    }, { rootMargin: '300px' });
+    }, { rootMargin: '800px' });
     gatilho.observe(canvas);
+    // Baixa o arquivo do modelo quando o navegador estiver ocioso (fica no cache)
+    const ocioso = window.requestIdleCallback ?? ((f: () => void) => window.setTimeout(f, 3000));
+    ocioso(() => void fetch('/3d/drone.glb').catch(() => {}));
 
     return () => {
       cancelado = true;

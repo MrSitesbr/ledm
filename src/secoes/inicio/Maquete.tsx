@@ -20,7 +20,9 @@ export function Maquete() {
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <Maquete3D alvoId="maquete" aoProgresso={setP} />
         {/* Leitura: escurece embaixo e à esquerda, onde ficam os textos */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.7) 0%, transparent 35%, transparent 50%, rgb(7 11 38 / 0.92) 100%), linear-gradient(90deg, rgb(7 11 38 / 0.8), rgb(7 11 38 / 0.35) 45%, transparent 70%)' }} />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(7 11 38 / 0.55) 0%, transparent 30%, transparent 55%, rgb(7 11 38 / 0.85) 100%), linear-gradient(90deg, rgb(7 11 38 / 0.6), transparent 55%)' }} />
+        {/* Sombra extra só enquanto o título de abertura aparece */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ opacity: clamp(1 - p * 8, 0, 1), background: 'linear-gradient(90deg, rgb(7 11 38 / 0.7), rgb(7 11 38 / 0.3) 50%, transparent 75%), linear-gradient(180deg, rgb(7 11 38 / 0.5), transparent 45%)' }} />
         <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true" style={{ zIndex: -1 }}>{m.carregando}</p>
 
         {/* Título de abertura */}
@@ -98,7 +100,9 @@ export function Drone() {
           ))}
           {!carregado && <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>}
           <Drone3D alvoId="drone-rolagem" aoProgresso={setP} aoCarregar={() => setCarregado(true)} />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55)), linear-gradient(90deg, rgb(5 10 25 / 0.7), rgb(5 10 25 / 0.3) 45%, transparent 70%), linear-gradient(180deg, transparent 55%, rgb(5 10 25 / 0.75) 100%)' }} />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55))' }} />
+          {/* Sombra extra só enquanto o título de abertura aparece */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ opacity: clamp(1 - p * 28, 0, 1), background: 'linear-gradient(90deg, rgb(5 10 25 / 0.7), rgb(5 10 25 / 0.3) 50%, transparent 75%)' }} />
 
           {/* Título de abertura */}
           <div className="absolute top-[calc(6rem+2vh)] left-[max(6vw,1.5rem)] max-w-[min(560px,88vw)] lg:top-1/2 lg:-translate-y-[55%]" style={{ opacity: clamp(1 - p * 28, 0, 1), textShadow: '0 2px 18px rgb(5 10 25 / 0.6)' }}>

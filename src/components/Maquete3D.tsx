@@ -97,7 +97,7 @@ export function Maquete3D({
       scene.add(rim);
       const sol = new THREE.DirectionalLight(0xffd9a0, 3.4);
       sol.castShadow = !leve;
-      sol.shadow.mapSize.set(2048, 2048);
+      sol.shadow.mapSize.set(1024, 1024);
       sol.shadow.bias = -0.0004;
       sol.shadow.normalBias = 0.06;
       scene.add(sol, sol.target);
@@ -110,11 +110,13 @@ export function Maquete3D({
       chao.receiveShadow = true;
       scene.add(chao);
 
+      let desenhar = true; // força um novo quadro (ex.: depois de redimensionar)
       const palco = canvas.parentElement!;
       const ajustar = () => {
         const w = palco.clientWidth;
         const h = palco.clientHeight;
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, leve ? 1.5 : 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, leve ? 1.25 : 1.5));
+        desenhar = true;
         renderer.setSize(w, h, false);
         cam.aspect = w / h;
         cam.updateProjectionMatrix();
@@ -125,7 +127,7 @@ export function Maquete3D({
       let R = 60;
       let H = 60;
       let pronto3d = false;
-      carregarModelo(THREE).then((m) => {
+      carregarModelo(THREE).then(async (m) => {
         if (cancelado) return;
         scene.add(m);
         m.traverse((o) => {
@@ -158,6 +160,9 @@ export function Maquete3D({
         const e = Math.max(R, H) * 1.2;
         Object.assign(sol.shadow.camera, { left: -e, right: e, top: e, bottom: -e, far: e * 5 });
         sol.shadow.camera.updateProjectionMatrix();
+        // Prepara os shaders em segundo plano, sem congelar a tela
+        await renderer.compileAsync(scene, cam).catch(() => {});
+        if (cancelado) return;
         pronto3d = true;
         setPronto(true);
       }).catch((erro) => {
@@ -181,7 +186,11 @@ export function Maquete3D({
         raf = requestAnimationFrame(quadro);
         if (!visivel || !pronto3d) return;
         const alvoP = progresso();
-        p += (alvoP - p) * 0.07;
+        const dp = alvoP - p;
+        // Câmera parada: não redesenha (economiza processador e bateria)
+        if (Math.abs(dp) < 0.00005 && !desenhar) return;
+        desenhar = false;
+        p += dp * 0.07;
         const k = ease(p);
         const ang = -0.5 + k * Math.PI * 2.1;
         const rad = lerp(R * 1.55, R * 0.85, Math.sin(p * Math.PI) * 0.7 + 0.3 * k) + Math.sin(p * 9) * R * 0.05;
@@ -211,8 +220,11 @@ export function Maquete3D({
       iniciado = true;
       gatilho.disconnect();
       iniciar();
-    }, { rootMargin: '300px' });
+    }, { rootMargin: '800px' });
     gatilho.observe(canvas);
+    // Baixa o arquivo do modelo quando o navegador estiver ocioso (fica no cache)
+    const ocioso = window.requestIdleCallback ?? ((f: () => void) => window.setTimeout(f, 2500));
+    ocioso(() => void fetch('/3d/residencial-apolo.glb').catch(() => {}));
 
     return () => {
       cancelado = true;
