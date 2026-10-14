@@ -5,7 +5,6 @@ import { Botao, Rotulo } from '@/components/Botao';
 import { Icone, type NomeIcone } from '@/components/Icone';
 import { Palavras, contarPalavras } from '@/components/Palavras';
 import { SliderFrases } from '@/components/SliderFrases';
-import { Maquete3D } from '@/components/Maquete3D';
 
 const titulo = 'font-[family-name:var(--font-titulo)] font-black tracking-[-0.03em]';
 const vidro = 'border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_1.5rem_4rem_-1rem_rgb(0_0_0/0.6)]';
@@ -20,10 +19,8 @@ export function Dobra() {
   const n3 = n2 + contarPalavras(d.tituloApagado);
   return (
     <section id="topo" className="tema-plantao relative overflow-hidden" aria-labelledby="titulo-dobra">
-      {/* Fundo: maquete 3D do Residencial Apolo orbitando com a rolagem, sob um filtro azul da marca */}
+      {/* Fundo leve, sem 3D (o 3D travava o carregamento do topo) */}
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[min(100svh,56rem)]">
-        <Maquete3D modo="fundo" alvoId="topo" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgb(17 29 102 / 0.58) 0%, rgb(17 29 102 / 0.68) 55%, #111D66 100%)', mixBlendMode: 'normal' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 35%, rgb(10 18 64 / 0.45), transparent 70%)' }} />
       </div>
       <div className="container-site relative flex flex-col items-center pt-10 pb-10 text-center sm:pt-14">

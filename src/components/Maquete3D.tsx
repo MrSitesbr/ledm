@@ -5,9 +5,8 @@ import type * as THREE_NS from 'three';
 
 /**
  * Maquete virtual do Residencial Apolo (three.js), baseada no HTML de referência "Parallax 3D".
- * - modo "secao": a câmera orbita o prédio conforme a rolagem dentro de `alvo` (seção alta com palco fixo).
- * - modo "fundo": órbita lenta ligada à rolagem do topo da página, para usar atrás do hero.
- * three.js só é carregado quando o componente aparece na tela.
+ * A câmera orbita o prédio conforme a rolagem dentro de `alvo` (seção alta com palco fixo).
+ * three.js só é carregado quando o componente chega perto da tela.
  */
 
 let modeloCache: Promise<THREE_NS.Group> | null = null;
@@ -35,12 +34,10 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 
 export function Maquete3D({
-  modo,
   alvoId,
   aoProgresso,
   className = '',
 }: {
-  modo: 'secao' | 'fundo';
   /** id do elemento cuja rolagem controla a órbita */
   alvoId: string;
   aoProgresso?: (p: number) => void;
@@ -60,7 +57,7 @@ export function Maquete3D({
     const iniciar = async () => {
       const THREE = await import('three');
       if (cancelado) return;
-      const leve = window.innerWidth < 700 || modo === 'fundo';
+      const leve = window.innerWidth < 700;
 
       let renderer: THREE_NS.WebGLRenderer;
       try {
@@ -172,9 +169,7 @@ export function Maquete3D({
       const progresso = () => {
         if (!alvo) return 0;
         const r = alvo.getBoundingClientRect();
-        if (modo === 'secao') return clamp(-r.top / (r.height - window.innerHeight), 0, 1);
-        // fundo: 0 com o hero no topo, 1 quando ele sai da tela
-        return clamp(-r.top / r.height, 0, 1);
+        return clamp(-r.top / (r.height - window.innerHeight), 0, 1);
       };
 
       let p = progresso();
@@ -182,28 +177,19 @@ export function Maquete3D({
       const obs = new IntersectionObserver(([e]) => (visivel = e.isIntersecting));
       obs.observe(palco);
       let raf = 0;
-      const quadro = (t: number) => {
+      const quadro = () => {
         raf = requestAnimationFrame(quadro);
         if (!visivel || !pronto3d) return;
         const alvoP = progresso();
         p += (alvoP - p) * 0.07;
-        if (modo === 'secao') {
-          const k = ease(p);
-          const ang = -0.5 + k * Math.PI * 2.1;
-          const rad = lerp(R * 1.55, R * 0.85, Math.sin(p * Math.PI) * 0.7 + 0.3 * k) + Math.sin(p * 9) * R * 0.05;
-          const y = lerp(H * 0.85, H * 0.06, Math.pow(k, 0.85));
-          cam.position.set(Math.cos(ang) * rad, y, Math.sin(ang) * rad);
-          cam.lookAt(0, lerp(H * 0.42, H * 0.14, k), 0);
-          cam.fov = lerp(44, 58, k);
-          progressoRef.current?.(p);
-        } else {
-          // Fundo do hero: giro lento contínuo + a rolagem aproxima e desce a câmera
-          const ang = 0.6 + t * 0.00004 + p * 1.2;
-          const rad = lerp(R * 0.62, R * 0.42, p);
-          cam.position.set(Math.cos(ang) * rad, lerp(H * 0.7, H * 0.35, p), Math.sin(ang) * rad);
-          cam.lookAt(0, H * 0.45, 0);
-          cam.fov = 36;
-        }
+        const k = ease(p);
+        const ang = -0.5 + k * Math.PI * 2.1;
+        const rad = lerp(R * 1.55, R * 0.85, Math.sin(p * Math.PI) * 0.7 + 0.3 * k) + Math.sin(p * 9) * R * 0.05;
+        const y = lerp(H * 0.85, H * 0.06, Math.pow(k, 0.85));
+        cam.position.set(Math.cos(ang) * rad, y, Math.sin(ang) * rad);
+        cam.lookAt(0, lerp(H * 0.42, H * 0.14, k), 0);
+        cam.fov = lerp(44, 58, k);
+        progressoRef.current?.(p);
         cam.updateProjectionMatrix();
         renderer.render(scene, cam);
       };
@@ -218,32 +204,22 @@ export function Maquete3D({
       };
     };
 
-    // Carregamento sob demanda (para o PageSpeed):
-    // - fundo do topo: só na primeira interação (rolar, mover o mouse, tocar, teclar);
-    // - seção: quando o palco chega perto da tela.
-    // O arquivo .glb é baixado uma única vez (modeloCache) e reaproveitado pelos dois.
+    // Carregamento sob demanda (para o PageSpeed): só quando o palco chega perto da tela.
     let iniciado = false;
-    const disparar = () => {
-      if (iniciado) return;
+    const gatilho = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting || iniciado) return;
       iniciado = true;
-      desligar();
-      iniciar();
-    };
-    const eventos = ['scroll', 'pointermove', 'pointerdown', 'touchstart', 'keydown', 'wheel'] as const;
-    const gatilho = new IntersectionObserver(([e]) => e.isIntersecting && disparar(), { rootMargin: '300px' });
-    const desligar = () => {
       gatilho.disconnect();
-      eventos.forEach((ev) => window.removeEventListener(ev, disparar));
-    };
-    if (modo === 'fundo') eventos.forEach((ev) => window.addEventListener(ev, disparar, { once: true, passive: true }));
-    else gatilho.observe(canvas);
+      iniciar();
+    }, { rootMargin: '300px' });
+    gatilho.observe(canvas);
 
     return () => {
       cancelado = true;
-      desligar();
+      gatilho.disconnect();
       limpar();
     };
-  }, [modo, alvoId]);
+  }, [alvoId]);
 
   return (
     <canvas

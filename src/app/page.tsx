@@ -6,7 +6,7 @@ import { duvidasPreenchidas } from '@/components/Duvidas';
 import { Dobra, Faixas, Manifesto, PorQue, Solucoes } from '@/secoes/inicio/Topo';
 import { Cases, ComoTrabalhamos, Plantao, AssistenteSdr, Comecar, BlocoDuvidas, ChamadaFinal } from '@/secoes/inicio/Base';
 import { Efeitos } from '@/components/Efeitos';
-import { Maquete } from '@/secoes/inicio/Maquete';
+import { Drone, Maquete } from '@/secoes/inicio/Maquete';
 import { empresa } from '@/lib/dados';
 
 export const metadata: Metadata = {
@@ -56,6 +56,7 @@ export default function Inicio() {
         <PorQue />
         <Solucoes />
         <Maquete />
+        <Drone />
         <Cases />
         <ComoTrabalhamos />
         <Plantao />

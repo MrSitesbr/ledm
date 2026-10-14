@@ -472,5 +472,53 @@
     "fimTexto": "Maquetes virtuais, imagens e vídeos de lançamento para construtoras e incorporadoras.",
     "credito": "“Residencial Apolo” por Walter Araujo, CC-BY-4.0",
     "creditoLink": "https://sketchfab.com/3d-models/residencial-apolo-e93b8e08278e433585639a0626e33e1c"
+  },
+  "drone": {
+    "rotulo": "Etapa 2 · Vídeos com drone",
+    "titulo": "Gravação aérea de imóveis com drone",
+    "dica": "Role para orbitar",
+    "carregando": "Carregando drone 3D…",
+    "etapas": [
+      {
+        "no": "01 · Tecnologia",
+        "titulo": "Imagens aéreas em alta resolução",
+        "texto": "Drones com câmera estabilizada e piloto habilitado registram cada detalhe do imóvel com qualidade de cinema.",
+        "imagem": "/img/01-tecnologia.webp",
+        "em": 0.12
+      },
+      {
+        "no": "02 · Andamento da obra",
+        "titulo": "Acompanhe a obra do início à entrega",
+        "texto": "Gravações periódicas mostram a evolução da construção e dão transparência a investidores e compradores.",
+        "imagem": "/img/02-obra.webp",
+        "em": 0.32
+      },
+      {
+        "no": "03 · Localização",
+        "titulo": "Mostre a localização privilegiada",
+        "texto": "Do alto, o cliente enxerga o entorno: acessos, comércio, áreas verdes e tudo que valoriza o empreendimento.",
+        "imagem": "/img/03-localizacao.webp",
+        "em": 0.52
+      },
+      {
+        "no": "04 · Prédio pronto",
+        "titulo": "O resultado final, com impacto",
+        "texto": "Imagens do edifício entregue, fachada, áreas comuns e vista, em movimentos que valorizam a arquitetura.",
+        "imagem": "/img/04-predio-pronto.webp",
+        "em": 0.72
+      },
+      {
+        "no": "05 · Divulgação",
+        "titulo": "Material pronto para vender",
+        "texto": "Vídeos e fotos para anúncios, redes sociais, site e stand de vendas, no padrão que a sua construtora merece.",
+        "imagem": "/img/05-divulgacao.webp",
+        "em": 0.9
+      }
+    ],
+    "fimRotulo": "Vamos gravar o seu imóvel",
+    "fimTitulo": "Seu empreendimento visto de cima, do jeito que ele merece.",
+    "fimTexto": "Andamento de obra, localização, fachada e prédio pronto, com movimentos de câmera profissionais.",
+    "credito": "“DJI Mini 2” por yigeshichen, CC-BY-NC-4.0",
+    "creditoLink": "https://sketchfab.com/3d-models/dji-mini-2-85678e6bf8a74829984193fed2d025b5"
   }
 }
