@@ -96,11 +96,16 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
                   <Link
                     href={item.href}
                     aria-current={ativo === item.href ? 'location' : undefined}
-                    className={`inline-flex min-h-11 items-center rounded-[var(--radius-botao)] px-2.5 font-[family-name:var(--font-titulo)] text-[0.82rem] whitespace-nowrap font-bold tracking-[0.04em] transition-colors duration-300 ${
-                      ativo === item.href ? 'bg-amarelo text-azul-plantao' : 'text-sobre-azul-2 hover:text-sobre-azul'
-                    }`}
+                    className="group inline-flex min-h-11 items-center font-[family-name:var(--font-titulo)] text-[0.82rem] whitespace-nowrap font-bold tracking-[0.04em]"
                   >
-                    {item.rotulo}
+                    {/* Destaque só em volta do texto: 6px em cima e embaixo, amarelo puro */}
+                    <span
+                      className={`rounded-[var(--radius-botao)] px-2.5 py-1.5 leading-none transition-colors duration-300 ${
+                        ativo === item.href ? 'bg-[#ffff00] text-azul-plantao' : 'text-sobre-azul-2 group-hover:text-sobre-azul'
+                      }`}
+                    >
+                      {item.rotulo}
+                    </span>
                   </Link>
                 </li>
               ))}
