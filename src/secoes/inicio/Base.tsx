@@ -185,7 +185,7 @@ export function Plantao() {
   );
 }
 
-/* Como começar · Aura "pricing": cartão claro e cartão escuro com brilho. Sem valores. */
+/* Como começar · Aura "pricing": cartões claros e cartão escuro com brilho no meio. Sem valores. */
 export function Comecar() {
   const c = inicio.comecar;
   return (
@@ -195,23 +195,24 @@ export function Comecar() {
         <h2 id="titulo-comecar" data-palavras className={`${h2Grande} mx-auto mt-5 max-w-[20ch] text-center`}>
           <Palavras texto={c.titulo} />
         </h2>
-        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
           {c.opcoes.map((o, i) => (
             <article
               key={o.nome}
+              /* 3º cartão: ocupa a linha inteira no tablet (2 colunas) */
               data-revelar
               style={{
                 ['--atraso' as string]: `${i * 0.12}s`,
                 ...(o.destaque ? { background: 'radial-gradient(at 50% 120%, rgb(255 204 0 / 0.22) 0%, #0A1240 45%, #070B26 100%)', boxShadow: '0 2rem 6rem -1.5rem rgb(17 29 102 / 0.55)' } : {}),
               }}
-              className={`flex flex-col rounded-[28px] p-8 sm:p-10 ${o.destaque ? 'text-sobre-azul' : 'border border-linha-clara bg-branco'}`}
+              className={`flex flex-col rounded-[28px] p-8 sm:p-10 lg:p-8 ${i === 2 ? 'md:col-span-2 lg:col-span-1' : ''} ${o.destaque ? 'text-sobre-azul' : 'border border-linha-clara bg-branco'}`}
             >
               <span className={`inline-flex size-11 items-center justify-center rounded-xl ${o.destaque ? 'border border-linha-azul' : 'bg-azul-plantao text-branco'}`}>
-                <Icone nome={o.destaque ? 'grid' : 'chat'} className="size-5" />
+                <Icone nome={o.icone as 'chat' | 'grid' | 'clipboard'} className="size-5" />
               </span>
               <h3 className="mt-8 font-[family-name:var(--font-titulo)] text-[1.75rem] leading-tight font-black tracking-[-0.02em]">{o.nome}</h3>
               <p className={`mt-3 ${o.destaque ? 'text-sobre-azul-2' : 'text-tinta-2'}`}>{o.texto}</p>
-              <ul className="mt-6 grid gap-3">
+              <ul className="mt-6 mb-8 grid gap-3">
                 {o.itens.map((it) => (
                   <li key={it} className="flex items-center gap-3">
                     <Icone nome="check" className={`size-5 shrink-0 ${o.destaque ? 'text-amarelo' : 'text-tinta'}`} />
@@ -219,12 +220,12 @@ export function Comecar() {
                   </li>
                 ))}
               </ul>
-              <div className={`mt-auto flex flex-wrap items-end justify-between gap-4 border-t pt-6 ${o.destaque ? 'mt-8 border-linha-azul' : 'mt-8 border-linha-clara'}`}>
+              <div className={`mt-auto flex flex-wrap items-end justify-between gap-4 border-t pt-6 ${o.destaque ? 'border-linha-azul' : 'border-linha-clara'}`}>
                 <div>
                   <p className={`text-xs ${o.destaque ? 'text-sobre-azul-3' : 'text-tinta-3'}`}>{c.idealPara}</p>
                   <p className="font-semibold">{o.para}</p>
                 </div>
-                <Botao href="#contato" variante={o.destaque ? 'principal' : 'secundario'} className="!min-h-11 !px-4">{comum.botaoPrincipal}</Botao>
+                <Botao href="#contato" variante={o.destaque ? 'principal' : 'secundario'} className="!min-h-11 !px-4">{'botao' in o ? o.botao : comum.botaoPrincipal}</Botao>
               </div>
             </article>
           ))}

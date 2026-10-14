@@ -191,9 +191,11 @@ export function Maquete3D({
         if (Math.abs(dp) < 0.00005 && !desenhar) return;
         desenhar = false;
         p += dp * 0.07;
-        const k = ease(p);
+        // A órbita termina em 80% da rolagem; o resto fica para o fechamento com a seção fixa
+        const q = Math.min(p / 0.8, 1);
+        const k = ease(q);
         const ang = -0.5 + k * Math.PI * 2.1;
-        const rad = lerp(R * 1.55, R * 0.85, Math.sin(p * Math.PI) * 0.7 + 0.3 * k) + Math.sin(p * 9) * R * 0.05;
+        const rad = lerp(R * 1.55, R * 0.85, Math.sin(q * Math.PI) * 0.7 + 0.3 * k) + Math.sin(q * 9) * R * 0.05;
         const y = lerp(H * 0.85, H * 0.06, Math.pow(k, 0.85));
         cam.position.set(Math.cos(ang) * rad, y, Math.sin(ang) * rad);
         cam.lookAt(0, lerp(H * 0.42, H * 0.14, k), 0);

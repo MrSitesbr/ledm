@@ -227,7 +227,7 @@
   },
   "comecar": {
     "rotulo": "Como começar",
-    "titulo": "Dois jeitos de trabalhar com a Led",
+    "titulo": "Três jeitos de trabalhar com a Led",
     "nota": "Os valores são apresentados em uma reunião, depois de entendermos a sua operação.",
     "idealPara": "Ideal para",
     "opcoes": [
@@ -241,7 +241,8 @@
           "Identidade visual"
         ],
         "para": "Imobiliárias e corretores",
-        "destaque": false
+        "destaque": false,
+        "icone": "chat"
       },
       {
         "nome": "Marketing, sistemas e IA",
@@ -253,7 +254,22 @@
           "Relatório mensal de contatos"
         ],
         "para": "Construtoras e incorporadoras",
-        "destaque": true
+        "destaque": true,
+        "icone": "grid"
+      },
+      {
+        "nome": "Orçamento personalizado",
+        "texto": "Para quem precisa de um serviço específico, como um lançamento ou uma gravação.",
+        "itens": [
+          "Filmagem aérea com drone",
+          "Maquete virtual 3D",
+          "Serviços avulsos",
+          "Pacotes montados sob medida"
+        ],
+        "para": "Demandas pontuais",
+        "destaque": false,
+        "icone": "clipboard",
+        "botao": "Pedir orçamento"
       }
     ]
   },
@@ -443,33 +459,37 @@
     "carregando": "Carregando modelo 3D…",
     "etapas": [
       {
-        "no": "01 · Maquete virtual",
-        "titulo": "Fiel ao projeto, até o último detalhe",
-        "texto": "Transformamos o projeto da construtora em um modelo 3D realista: fachada, materiais, esquadrias e entorno.",
-        "em": 0.14
+        "no": "01 · Realidade aumentada",
+        "titulo": "O empreendimento na palma da mão",
+        "texto": "Com o celular apontado para o folder ou a mesa do stand, o cliente vê a maquete 3D surgir e gira o prédio de todos os lados.",
+        "imagem": "/img/m01-maquete.webp",
+        "em": 0.11
       },
       {
-        "no": "02 · Todos os ângulos",
-        "titulo": "Câmera livre, sem limite de enquadramento",
-        "texto": "Mostramos o prédio de cima, de lado e a pé, em ângulos que nem uma fotografia real alcança.",
-        "em": 0.36
+        "no": "02 · Visita virtual",
+        "titulo": "Um passeio pelo prédio antes da obra",
+        "texto": "Fachada, entrada e áreas de lazer em 3D, para o cliente conhecer no site, no tablet do corretor ou na tela do stand.",
+        "imagem": "/img/m04-experiencia.webp",
+        "em": 0.29
       },
       {
-        "no": "03 · Divulgação",
-        "titulo": "Material para vender na planta",
-        "texto": "Imagens, vídeos, animações e peças para anúncios, stands, redes sociais e site do lançamento.",
-        "em": 0.58
+        "no": "03 · Imagens e vídeos",
+        "titulo": "Renders e animações para vender na planta",
+        "texto": "Imagens realistas e vídeos animados do empreendimento para anúncios, redes sociais, site e material de lançamento.",
+        "imagem": "/img/m03-divulgacao.webp",
+        "em": 0.47
       },
       {
-        "no": "04 · Experiência",
-        "titulo": "O cliente vê o prédio antes da obra",
-        "texto": "Do alto até a entrada, a visita virtual faz o comprador imaginar a vida no empreendimento.",
-        "em": 0.8
+        "no": "04 · Maquete interativa",
+        "titulo": "Uma maquete virtual no site do lançamento",
+        "texto": "Como esta que você está vendo: o visitante gira o prédio e explora cada detalhe, no celular ou no computador.",
+        "imagem": "/img/m02-angulos.webp",
+        "em": 0.65
       }
     ],
     "fimRotulo": "Demonstração",
     "fimTitulo": "Este é um modelo de demonstração. O próximo pode ser o seu empreendimento.",
-    "fimTexto": "Maquetes virtuais, imagens e vídeos de lançamento para construtoras e incorporadoras.",
+    "fimTexto": "Realidade aumentada, visita virtual, imagens e vídeos de lançamento para construtoras e incorporadoras.",
     "credito": "“Residencial Apolo” por Walter Araujo, CC-BY-4.0",
     "creditoLink": "https://sketchfab.com/3d-models/residencial-apolo-e93b8e08278e433585639a0626e33e1c"
   },
