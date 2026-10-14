@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import inicio from '@/content/inicio.json';
 import comum from '@/content/comum.json';
 import { Botao } from '@/components/Botao';
@@ -59,13 +59,10 @@ export function Maquete() {
           <Botao href="#contato" className="mt-6">{comum.botaoPrincipal}</Botao>
         </div>
 
-        {/* Barra de progresso e crédito */}
+        {/* Barra de progresso */}
         <div aria-hidden="true" className="absolute top-1/2 right-5 h-40 w-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/15">
           <div className="w-full rounded-full" style={{ height: `${p * 100}%`, background: 'var(--grad-luz)' }} />
         </div>
-        <a href={m.creditoLink} target="_blank" rel="noopener noreferrer" className="absolute right-4 bottom-3 text-[11px] text-sobre-azul-3 underline-offset-2 hover:underline">
-          {m.credito}
-        </a>
 
         {/* Leitores de tela: todas as etapas em texto */}
         <ol className="sr-only">
@@ -88,6 +85,24 @@ const nuvens = [
 export function Drone() {
   const [p, setP] = useState(0);
   const [carregado, setCarregado] = useState(false);
+  const com3d = useRef(false);
+  // Plano B: sem 3D (WebGL indisponível ou modelo com erro), a rolagem comanda etapas e fechamento
+  useEffect(() => {
+    const alvo = document.getElementById('drone-rolagem');
+    if (!alvo) return;
+    const rolar = () => {
+      if (com3d.current) return;
+      const r = alvo.getBoundingClientRect();
+      setP(clamp(-r.top / (r.height - window.innerHeight), 0, 1));
+    };
+    rolar();
+    window.addEventListener('scroll', rolar, { passive: true });
+    return () => window.removeEventListener('scroll', rolar);
+  }, []);
+  const progresso3d = (v: number) => {
+    com3d.current = true;
+    setP(v);
+  };
   const fim = p > 0.97;
   return (
     <section id="drone" className="relative text-sobre-azul" style={{ background: 'var(--color-azul-fundo)' }} aria-labelledby="titulo-drone">
@@ -98,8 +113,10 @@ export function Drone() {
           {nuvens.map((n) => (
             <div key={n.left} aria-hidden="true" className="absolute h-[9vmin] rounded-[50%] bg-white/12 blur-[14px]" style={{ left: n.left, top: n.top, width: n.w, transform: `translate3d(${p * 600 * n.s * 0.25 - p * 8}px, ${-p * 600 * n.s * 0.12}px, 0)` }} />
           ))}
-          {!carregado && <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>}
-          <Drone3D alvoId="drone-rolagem" aoProgresso={setP} aoCarregar={() => setCarregado(true)} />
+          {!carregado && !fim && <p className="absolute inset-0 grid place-items-center text-sm text-sobre-azul-3" aria-hidden="true">{dr.carregando}</p>}
+          <div className="absolute inset-0 transition-opacity duration-700" style={{ opacity: fim ? 0 : 1 }}>
+            <Drone3D alvoId="drone-rolagem" aoProgresso={progresso3d} aoCarregar={() => setCarregado(true)} />
+          </div>
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, transparent 45%, rgb(5 10 25 / 0.55))' }} />
           {/* Sombra extra só enquanto o título de abertura aparece */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ opacity: clamp(1 - p * 28, 0, 1), background: 'linear-gradient(90deg, rgb(5 10 25 / 0.7), rgb(5 10 25 / 0.3) 50%, transparent 75%)' }} />
@@ -136,13 +153,25 @@ export function Drone() {
             );
           })}
 
-          {/* Barra de progresso e crédito */}
-          <div aria-hidden="true" className="absolute top-1/2 right-5 h-40 w-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/15">
+          {/* Fechamento: última mensagem da seção, texto à esquerda e piloto à direita */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 transition-opacity duration-700" style={{ opacity: fim ? 1 : 0, background: 'linear-gradient(90deg, rgb(5 10 25 / 0.75), rgb(5 10 25 / 0.35) 50%, transparent 75%)' }} />
+          <div className="absolute inset-0 grid grid-rows-[1fr_auto] transition-all duration-700 lg:grid-cols-2 lg:grid-rows-1" style={{ opacity: fim ? 1 : 0, transform: fim ? 'none' : 'translateY(24px)', pointerEvents: fim ? 'auto' : 'none' }} inert={!fim}>
+            <div className="self-center pt-24 pr-6 pl-[max(6vw,1.5rem)] text-left lg:pt-0" style={{ textShadow: '0 2px 18px rgb(5 10 25 / 0.6)' }}>
+              <p className="rotulo text-amarelo">{dr.fimRotulo}</p>
+              <h3 className="mt-3 max-w-[22ch] font-[family-name:var(--font-titulo)] text-[clamp(1.5rem,3vw,2.4rem)] leading-[1.1] font-black tracking-[-0.02em]">{dr.fimTitulo}</h3>
+              <p className="mt-4 max-w-[46ch] text-sobre-azul-2">{dr.fimTexto}</p>
+              <Botao href="#contato" className="mt-7">{comum.botaoPrincipal}</Botao>
+            </div>
+            <div className="flex items-end justify-center lg:justify-end">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/img/piloto-drone.webp" alt={dr.fimImagemAlt} width={903} height={600} loading="lazy" decoding="async" className="block h-auto max-h-[42svh] w-auto max-w-full lg:max-h-[78svh]" />
+            </div>
+          </div>
+
+          {/* Barra de progresso */}
+          <div aria-hidden="true" className="absolute top-1/2 right-5 h-40 w-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/15 transition-opacity duration-700" style={{ opacity: fim ? 0 : 1 }}>
             <div className="w-full rounded-full" style={{ height: `${p * 100}%`, background: 'var(--grad-luz)' }} />
           </div>
-          <a href={dr.creditoLink} target="_blank" rel="noopener noreferrer" className="absolute right-4 bottom-3 text-[11px] text-sobre-azul-2 underline-offset-2 hover:underline" style={{ opacity: fim ? 0 : 1 }}>
-            {dr.credito}
-          </a>
 
           {/* Leitores de tela: todas as etapas em texto */}
           <ol className="sr-only">
@@ -151,13 +180,6 @@ export function Drone() {
         </div>
       </div>
 
-      {/* Fechamento com chamada */}
-      <div className="container-site py-[12vh] text-left">
-        <p className="rotulo text-amarelo">{dr.fimRotulo}</p>
-        <h3 className="mt-3 max-w-[26ch] font-[family-name:var(--font-titulo)] text-[clamp(1.5rem,3vw,2.4rem)] leading-[1.1] font-black tracking-[-0.02em]">{dr.fimTitulo}</h3>
-        <p className="mt-4 max-w-[52ch] text-sobre-azul-2">{dr.fimTexto}</p>
-        <Botao href="#contato" className="mt-7">{comum.botaoPrincipal}</Botao>
-      </div>
     </section>
   );
 }
