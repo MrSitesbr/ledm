@@ -39,7 +39,7 @@ export function Rodape({ minimo = false }: { minimo?: boolean }) {
           <nav aria-label="Rodapé">
             <p className="rotulo text-sobre-azul-3">{comum.rodape.navegacao}</p>
             <ul className="mt-3">
-              {comum.menu.map((item) => (
+              {comum.menuRodape.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={linkClasse}>{item.rotulo}</Link>
                 </li>

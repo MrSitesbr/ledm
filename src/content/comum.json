@@ -8,12 +8,20 @@
       "href": "/#solucoes"
     },
     {
+      "rotulo": "Maquete 3D",
+      "href": "/#maquete"
+    },
+    {
+      "rotulo": "Drone",
+      "href": "/#drone"
+    },
+    {
       "rotulo": "Cases",
       "href": "/#cases"
     },
     {
-      "rotulo": "Como trabalhamos",
-      "href": "/#como-trabalhamos"
+      "rotulo": "Como começar",
+      "href": "/#como-comecar"
     },
     {
       "rotulo": "Quem somos",
@@ -22,6 +30,44 @@
     {
       "rotulo": "Dúvidas",
       "href": "/#duvidas"
+    }
+  ],
+  "menuRodape": [
+    {
+      "rotulo": "O que fazemos",
+      "href": "/#solucoes"
+    },
+    {
+      "rotulo": "Maquete virtual 3D",
+      "href": "/#maquete"
+    },
+    {
+      "rotulo": "Vídeos com drone",
+      "href": "/#drone"
+    },
+    {
+      "rotulo": "Cases",
+      "href": "/#cases"
+    },
+    {
+      "rotulo": "Como trabalhamos",
+      "href": "/#como-trabalhamos"
+    },
+    {
+      "rotulo": "Assistente SDR com IA",
+      "href": "/#assistente-sdr"
+    },
+    {
+      "rotulo": "Como começar",
+      "href": "/#como-comecar"
+    },
+    {
+      "rotulo": "Dúvidas",
+      "href": "/#duvidas"
+    },
+    {
+      "rotulo": "Quem somos",
+      "href": "/quem-somos"
     }
   ],
   "menuAbrir": "Abrir menu",

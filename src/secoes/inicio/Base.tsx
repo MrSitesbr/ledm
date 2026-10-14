@@ -189,7 +189,7 @@ export function Plantao() {
 export function Comecar() {
   const c = inicio.comecar;
   return (
-    <section className="tema-nevoa bloco" aria-labelledby="titulo-comecar">
+    <section id="como-comecar" className="tema-nevoa bloco" aria-labelledby="titulo-comecar">
       <div className="container-site">
         <Rotulo className="text-center text-tinta-3">{c.rotulo}</Rotulo>
         <h2 id="titulo-comecar" data-palavras className={`${h2Grande} mx-auto mt-5 max-w-[20ch] text-center`}>

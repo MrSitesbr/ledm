@@ -8,7 +8,7 @@ import { Icone } from './Icone';
 
 /**
  * Cabeçalho fixo, tema Plantão.
- * O botão amarelo só aparece depois que o botão da primeira dobra (#cta-dobra) sai da tela.
+ * O menu completo aparece a partir de 1360px (antes disso, gaveta). O botão amarelo só aparece depois que o botão da primeira dobra (#cta-dobra) sai da tela.
  * Em páginas sem esse botão, aparece sempre. No celular o menu vira gaveta e o botão fica fora dela.
  */
 export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
@@ -47,13 +47,13 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
         <Logo fundo="escuro" altura={34} />
 
         {!semMenu && (
-          <nav aria-label="Principal" className="ml-auto hidden min-[1180px]:block">
+          <nav aria-label="Principal" className="ml-auto hidden min-[1360px]:block">
             <ul className="flex items-center gap-1">
               {comum.menu.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 items-center rounded-[var(--radius-botao)] px-3 font-[family-name:var(--font-titulo)] text-[0.82rem] font-bold tracking-[0.04em] text-sobre-azul-2 transition-colors hover:text-sobre-azul"
+                    className="inline-flex min-h-11 items-center rounded-[var(--radius-botao)] px-2.5 font-[family-name:var(--font-titulo)] text-[0.82rem] whitespace-nowrap font-bold tracking-[0.04em] text-sobre-azul-2 transition-colors hover:text-sobre-azul"
                   >
                     {item.rotulo}
                   </Link>
@@ -64,10 +64,10 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
         )}
 
         {!semMenu && (
-          <div className={`ml-auto flex items-center gap-2 min-[1180px]:ml-2`}>
+          <div className={`ml-auto flex items-center gap-2 min-[1360px]:ml-2`}>
             <Link
               href="/#contato"
-              className={`botao botao-principal !min-h-11 !px-4 max-[420px]:!px-3 max-[420px]:!text-[0.72rem] transition-opacity duration-300 ${
+              className={`botao botao-principal !min-h-11 !px-4 whitespace-nowrap max-[420px]:!px-3 max-[420px]:!text-[0.72rem] transition-opacity duration-300 ${
                 mostrarBotao ? 'opacity-100' : 'pointer-events-none invisible opacity-0'
               }`}
               aria-hidden={!mostrarBotao}
@@ -79,7 +79,7 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
             <button
               ref={botaoMenu}
               type="button"
-              className="inline-flex size-11 items-center justify-center rounded-[var(--radius-botao)] border border-linha-azul text-sobre-azul min-[1180px]:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-[var(--radius-botao)] border border-linha-azul text-sobre-azul min-[1360px]:hidden"
               aria-expanded={aberto}
               aria-controls="menu-gaveta"
               aria-label={aberto ? comum.menuFechar : comum.menuAbrir}
@@ -96,7 +96,7 @@ export function Cabecalho({ semMenu = false }: { semMenu?: boolean }) {
           id="menu-gaveta"
           aria-label="Principal no celular"
           hidden={!aberto}
-          className="border-t border-linha-azul min-[1180px]:hidden"
+          className="border-t border-linha-azul min-[1360px]:hidden"
           style={{ background: 'var(--color-azul-noite)' }}
         >
           <ul className="container-site flex flex-col py-3">
