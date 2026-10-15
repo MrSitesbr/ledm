@@ -454,23 +454,25 @@
   },
   "tecnologias": {
     "titulo": "Nossas tecnologias e ferramentas",
+    "nota": "altura de cada logo em px no computador (no celular fica 85%), ajustada pelo formato do desenho para todos terem peso visual parecido",
     "linhas": [
       [
-        { "nome": "Claude Code", "logo": "/marcas/claude-code-icon.svg", "icone": true },
-        { "nome": "ChatGPT", "logo": "/marcas/chatgpt-openai-wordmark.svg" },
-        { "nome": "Manus", "logo": "/marcas/manus.svg", "grande": true },
-        { "nome": "Lovable", "logo": "/marcas/lovable-wordmark-light.svg" },
-        { "nome": "Supabase", "logo": "/marcas/supabase-wordmark-for-light-bg.svg" },
-        { "nome": "Visual Studio Code", "logo": "/marcas/vscode-icon.svg", "icone": true },
-        { "nome": "WordPress", "logo": "/marcas/wordpress.svg", "grande": true }
+        { "nome": "Claude Code", "logo": "/marcas/claude-code-icon.svg", "altura": 30 },
+        { "nome": "ChatGPT", "logo": "/marcas/chatgpt-openai-wordmark.svg", "altura": 22 },
+        { "nome": "GitHub", "logo": "/marcas/github-lockup-black.svg", "altura": 24 },
+        { "nome": "Supabase", "logo": "/marcas/supabase-wordmark-for-light-bg.svg", "altura": 20 },
+        { "nome": "AWS", "logo": "/marcas/aws.svg", "altura": 30 },
+        { "nome": "Visual Studio Code", "logo": "/marcas/vscode-icon.svg", "altura": 30 },
+        { "nome": "WordPress", "logo": "/marcas/wordpress.svg", "altura": 52 }
       ],
       [
-        { "nome": "Meta", "logo": "/marcas/meta.svg" },
-        { "nome": "Adobe", "logo": "/marcas/adobe-wordmark-red.svg", "icone": true },
-        { "nome": "CorelDRAW", "logo": "/marcas/corel-wordmark.svg" },
-        { "nome": "Apple", "logo": "/marcas/apple-symbol.svg", "icone": true },
-        { "nome": "Windows", "logo": "/marcas/windows-wordmark-2012-2015.svg" },
-        { "nome": "Linux", "logo": "/marcas/linux-tux.svg", "icone": true }
+        { "nome": "Meta", "logo": "/marcas/meta.svg", "altura": 20 },
+        { "nome": "Adobe", "logo": "/marcas/adobe-wordmark-red.svg", "altura": 32 },
+        { "nome": "Autodesk", "logo": "/marcas/autodesk.svg", "altura": 13 },
+        { "nome": "CorelDRAW", "logo": "/marcas/corel-wordmark.svg", "altura": 18 },
+        { "nome": "Apple", "logo": "/marcas/apple-symbol.svg", "altura": 32 },
+        { "nome": "Windows", "logo": "/marcas/windows-wordmark-2012-2015.svg", "altura": 21 },
+        { "nome": "Linux", "logo": "/marcas/linux-tux.svg", "altura": 32 }
       ]
     ]
   },

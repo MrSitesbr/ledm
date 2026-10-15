@@ -187,7 +187,12 @@ export function Tecnologias() {
       </div>
       <div className="mt-9 grid gap-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
         {t.linhas.map((linha, n) => (
-          <ul key={n} className={`${n % 2 ? 'marquee-b' : 'marquee-a'} flex w-max items-center`} aria-label={n ? undefined : t.titulo}>
+          <ul
+            key={n}
+            className={`${n % 2 ? 'marquee-b' : 'marquee-a'} flex w-max items-center`}
+            style={{ animationDuration: n % 2 ? '110s' : '100s' }}
+            aria-label={n ? undefined : t.titulo}
+          >
             {/* Lista repetida duas vezes para o loop não ter emenda; a cópia fica oculta para leitores de tela */}
             {[...linha, ...linha, ...linha, ...linha].map((l, i) => (
               <li key={i} className="flex shrink-0 items-center px-7 sm:px-10" aria-hidden={i >= linha.length || undefined}>
@@ -196,7 +201,8 @@ export function Tecnologias() {
                   src={l.logo}
                   alt={i < linha.length ? l.nome : ''}
                   decoding="async"
-                  className={`${'grande' in l ? 'h-11 sm:h-14' : 'icone' in l ? 'h-9 sm:h-10' : 'h-6 sm:h-7'} w-auto max-w-[10rem] opacity-75 [filter:brightness(0)]`}
+                  className="w-auto max-w-none opacity-75 [filter:brightness(0)] h-[calc(var(--h)*0.85)] sm:h-[var(--h)]"
+                  style={{ ['--h' as string]: `${l.altura}px` }}
                 />
               </li>
             ))}
