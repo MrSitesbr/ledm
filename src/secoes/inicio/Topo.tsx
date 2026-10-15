@@ -176,6 +176,37 @@ export function PorQue() {
   );
 }
 
+/* Nossas tecnologias e ferramentas: faixa baixa com duas linhas de logos em cinza escuro,
+   uma rolando para a esquerda e a outra para a direita. */
+export function Tecnologias() {
+  const t = inicio.tecnologias;
+  return (
+    <section id="tecnologias" className="tema-nevoa py-14 sm:py-16" aria-labelledby="titulo-tecnologias">
+      <div className="container-site">
+        <h2 id="titulo-tecnologias" className="rotulo text-center text-tinta-3">{t.titulo}</h2>
+      </div>
+      <div className="mt-9 grid gap-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+        {t.linhas.map((linha, n) => (
+          <ul key={n} className={`${n % 2 ? 'marquee-b' : 'marquee-a'} flex w-max items-center`} aria-label={n ? undefined : t.titulo}>
+            {/* Lista repetida duas vezes para o loop não ter emenda; a cópia fica oculta para leitores de tela */}
+            {[...linha, ...linha, ...linha, ...linha].map((l, i) => (
+              <li key={i} className="flex shrink-0 items-center px-7 sm:px-10" aria-hidden={i >= linha.length || undefined}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={l.logo}
+                  alt={i < linha.length ? l.nome : ''}
+                  decoding="async"
+                  className={`${'grande' in l ? 'h-11 sm:h-14' : 'icone' in l ? 'h-9 sm:h-10' : 'h-6 sm:h-7'} w-auto max-w-[10rem] opacity-75 [filter:brightness(0)]`}
+                />
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* O que fazemos · Aura "Outputs": linhas com área, título central e meta. */
 export function Solucoes() {
   const s = inicio.solucoes;

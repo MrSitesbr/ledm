@@ -3,7 +3,7 @@ import inicio from '@/content/inicio.json';
 import { Cabecalho } from '@/components/Cabecalho';
 import { Rodape } from '@/components/Rodape';
 import { duvidasPreenchidas } from '@/components/Duvidas';
-import { Dobra, Faixas, Manifesto, PorQue, Solucoes } from '@/secoes/inicio/Topo';
+import { Dobra, Faixas, Manifesto, PorQue, Solucoes, Tecnologias } from '@/secoes/inicio/Topo';
 import { Cases, ComoTrabalhamos, Plantao, AssistenteSdr, Comecar, BlocoDuvidas, ChamadaFinal } from '@/secoes/inicio/Base';
 import { Efeitos } from '@/components/Efeitos';
 import { Drone, Maquete } from '@/secoes/inicio/Maquete';
@@ -54,6 +54,7 @@ export default function Inicio() {
         <Faixas />
         <Manifesto />
         <PorQue />
+        <Tecnologias />
         <Solucoes />
         <Maquete />
         <Drone />
