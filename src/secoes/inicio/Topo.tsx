@@ -190,7 +190,7 @@ export function Tecnologias() {
           <ul
             key={n}
             className={`${n % 2 ? 'marquee-b' : 'marquee-a'} flex w-max items-center`}
-            style={{ animationDuration: n % 2 ? '110s' : '100s' }}
+            style={{ animationDuration: n % 2 ? '175s' : '160s' }}
             aria-label={n ? undefined : t.titulo}
           >
             {/* Lista repetida duas vezes para o loop não ter emenda; a cópia fica oculta para leitores de tela */}

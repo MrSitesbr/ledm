@@ -462,17 +462,25 @@
         { "nome": "GitHub", "logo": "/marcas/github-lockup-black.svg", "altura": 24 },
         { "nome": "Supabase", "logo": "/marcas/supabase-wordmark-for-light-bg.svg", "altura": 20 },
         { "nome": "AWS", "logo": "/marcas/aws.svg", "altura": 30 },
+        { "nome": "n8n", "logo": "/marcas/n8n.svg", "altura": 27 },
         { "nome": "Visual Studio Code", "logo": "/marcas/vscode-icon.svg", "altura": 30 },
-        { "nome": "WordPress", "logo": "/marcas/wordpress.svg", "altura": 52 }
+        { "nome": "WordPress", "logo": "/marcas/wordpress.svg", "altura": 52 },
+        { "nome": "ManyChat", "logo": "/marcas/manychat.svg", "altura": 17 },
+        { "nome": "WhatsApp", "logo": "/marcas/whatsapp.svg", "altura": 30 },
+        { "nome": "Kommo", "logo": "/marcas/kommo.svg", "altura": 18 }
       ],
       [
         { "nome": "Meta", "logo": "/marcas/meta.svg", "altura": 20 },
         { "nome": "Adobe", "logo": "/marcas/adobe-wordmark-red.svg", "altura": 32 },
         { "nome": "Autodesk", "logo": "/marcas/autodesk.svg", "altura": 13 },
         { "nome": "CorelDRAW", "logo": "/marcas/corel-wordmark.svg", "altura": 18 },
+        { "nome": "DJI", "logo": "/marcas/dji.svg", "altura": 26 },
         { "nome": "Apple", "logo": "/marcas/apple-symbol.svg", "altura": 32 },
         { "nome": "Windows", "logo": "/marcas/windows-wordmark-2012-2015.svg", "altura": 21 },
-        { "nome": "Linux", "logo": "/marcas/linux-tux.svg", "altura": 32 }
+        { "nome": "Lenovo", "logo": "/marcas/lenovo-texto.svg", "altura": 30 },
+        { "nome": "Linux", "logo": "/marcas/linux-tux.svg", "altura": 32 },
+        { "nome": "Trello", "logo": "/marcas/trello.svg", "altura": 18 },
+        { "nome": "Bitrix24", "logo": "/marcas/bitrix24.svg", "altura": 20 }
       ]
     ]
   },
