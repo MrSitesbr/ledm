@@ -522,6 +522,7 @@
     "fimRotulo": "Demonstração",
     "fimTitulo": "Este é um modelo de demonstração. O próximo pode ser o seu empreendimento.",
     "fimTexto": "Realidade aumentada, visita virtual, imagens e vídeos de lançamento para construtoras e incorporadoras.",
+    "proxima": { "href": "#drone", "rotulo": "Próxima seção: vídeos com drone" },
     "credito": "“Residencial Apolo” por Walter Araujo, CC-BY-4.0",
     "creditoLink": "https://sketchfab.com/3d-models/residencial-apolo-e93b8e08278e433585639a0626e33e1c"
   },
@@ -570,6 +571,7 @@
     "fimRotulo": "Vamos gravar o seu imóvel",
     "fimTitulo": "Seu empreendimento visto de cima, do jeito que ele merece.",
     "fimTexto": "Andamento de obra, localização, fachada e prédio pronto, com movimentos de câmera profissionais.",
+    "proxima": { "href": "#cases", "rotulo": "Próxima seção: cases" },
     "fimImagemAlt": "Piloto controlando um drone com câmera para gravação aérea de imóvel",
     "credito": "“DJI Mini 2” por yigeshichen, CC-BY-NC-4.0",
     "creditoLink": "https://sketchfab.com/3d-models/dji-mini-2-85678e6bf8a74829984193fed2d025b5"

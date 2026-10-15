@@ -237,6 +237,10 @@ p { text-wrap: pretty; }
 
 /* Selo girando */
 @keyframes gira { to { transform: rotate(360deg); } }
+
+/* Seta "tem mais conteúdo abaixo": desce 4px e volta */
+@keyframes seta-desce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+.seta-desce { animation: seta-desce 1.8s ease-in-out infinite; }
 .selo-gira { animation: gira 22s linear infinite; }
 
 /* Imagem com parallax: maior que a moldura para não mostrar borda ao deslocar */

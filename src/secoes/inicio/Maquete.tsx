@@ -4,12 +4,32 @@ import { useEffect, useRef, useState } from 'react';
 import inicio from '@/content/inicio.json';
 import comum from '@/content/comum.json';
 import { Botao } from '@/components/Botao';
+import { Icone } from '@/components/Icone';
 import { Maquete3D } from '@/components/Maquete3D';
 import { Drone3D } from '@/components/Drone3D';
 
 const m = inicio.maquete;
 const dr = inicio.drone;
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
+
+/* Seta discreta no centro de baixo: aparece na última etapa e leva à próxima seção */
+function SetaProxima({ href, rotulo, visivel }: { href: string; rotulo: string; visivel: boolean }) {
+  return (
+    <a
+      href={href}
+      aria-label={rotulo}
+      title={rotulo}
+      tabIndex={visivel ? undefined : -1}
+      aria-hidden={!visivel}
+      className="absolute bottom-4 left-1/2 z-10 inline-flex size-10 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-[rgb(7_11_38/0.35)] text-sobre-azul-2 backdrop-blur-sm transition-[opacity,color,border-color] duration-700 hover:border-white/60 hover:text-sobre-azul"
+      style={{ opacity: visivel ? 1 : 0, pointerEvents: visivel ? 'auto' : 'none' }}
+    >
+      <span className="seta-desce inline-flex">
+        <Icone nome="arrow-right" className="size-4 rotate-90" />
+      </span>
+    </a>
+  );
+}
 
 /* Maquete virtual interativa: seção alta com palco fixo; a rolagem orbita o prédio
    e as quatro etapas aparecem em sequência (como no HTML de referência "Parallax 3D"). */
@@ -86,6 +106,8 @@ export function Maquete() {
           <p className="mt-3 max-w-[48ch] text-sobre-azul-2">{m.fimTexto}</p>
           <Botao href="#contato" className="mt-6">{comum.botaoPrincipal}</Botao>
         </div>
+
+        <SetaProxima href={m.proxima.href} rotulo={m.proxima.rotulo} visivel={fim} />
 
         {/* Barra de progresso */}
         <div aria-hidden="true" className="absolute top-1/2 right-5 h-40 w-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/15">
@@ -195,6 +217,8 @@ export function Drone() {
               <img src="/img/piloto-drone.webp" alt={dr.fimImagemAlt} width={903} height={600} loading="lazy" decoding="async" className="block h-auto max-h-[42svh] w-auto max-w-full lg:max-h-[78svh]" />
             </div>
           </div>
+
+          <SetaProxima href={dr.proxima.href} rotulo={dr.proxima.rotulo} visivel={fim} />
 
           {/* Barra de progresso */}
           <div aria-hidden="true" className="absolute top-1/2 right-5 h-40 w-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/15 transition-opacity duration-700" style={{ opacity: fim ? 0 : 1 }}>
