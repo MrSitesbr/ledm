@@ -2,8 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
 import { SpriteIcones } from '@/components/Icone';
 import { RolagemTopo } from '@/components/RolagemTopo';
+import { MedicaoMeta } from '@/components/MedicaoMeta';
 import comum from '@/content/comum.json';
-import { empresa } from '@/lib/dados';
+import { empresa, medicao } from '@/lib/dados';
 import './globals.css';
 
 // next/font baixa as fontes no build e serve do próprio site (sem chamada ao Google em produção).
@@ -28,6 +29,10 @@ export const metadata: Metadata = {
     apple: [{ url: '/brand/ledm-simbolo-180.png', sizes: '180x180' }],
   },
   openGraph: { locale: 'pt_BR', siteName: 'Led Marketing', type: 'website' },
+  // Verificação de domínio no Gerenciador de Negócios da Meta (só entra se preenchido em site.json)
+  ...(medicao.metaVerificacaoDominio.trim()
+    ? { other: { 'facebook-domain-verification': medicao.metaVerificacaoDominio.trim() } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -44,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpriteIcones />
         <RolagemTopo />
         {children}
+        <MedicaoMeta />
       </body>
     </html>
   );

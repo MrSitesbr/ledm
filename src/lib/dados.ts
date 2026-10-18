@@ -6,6 +6,8 @@ export type Plano = (typeof site.planos)[number];
 
 export const empresa = site.empresa;
 export const opcoes = site.opcoes;
+/** IDs de medição (Meta Pixel). Vazio = nada é carregado. */
+export const medicao = site.medicao;
 export const premissas = site.premissas;
 export const calculadora = site.calculadora;
 export const planos: Plano[] = site.planos;

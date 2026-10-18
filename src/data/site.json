@@ -35,6 +35,10 @@
       "Outra cidade"
     ]
   },
+  "medicao": {
+    "metaPixelId": "",
+    "metaVerificacaoDominio": ""
+  },
   "opcoes": {
     "mostrarPrecos": true,
     "garantia30Dias": false,

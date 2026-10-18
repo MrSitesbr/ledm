@@ -80,6 +80,11 @@
     "contato": "Contato",
     "copyright": "© 2026 Led Marketing. CNPJ {cnpj}."
   },
+  "cookies": {
+    "texto": "Usamos cookies de medição (Meta Pixel) para entender quais anúncios trazem visitas e melhorar nossas campanhas. Você pode aceitar ou recusar.",
+    "aceitar": "Aceitar",
+    "recusar": "Recusar"
+  },
   "whatsappFlutuante": {
     "botao": "Falar com a Led no WhatsApp",
     "titulo": "Fale com a Led pelo WhatsApp",
