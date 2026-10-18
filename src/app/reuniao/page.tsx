@@ -72,19 +72,34 @@ export default function Reuniao() {
               <Palavras texto={r.paraQuem.titulo} />
             </h2>
             <p className="mt-4 text-center text-tinta-3">{r.paraQuem.texto}</p>
-            <div className="mt-12 grid items-center gap-10 lg:grid-cols-2">
-              <div data-revelar className="relative mx-auto w-full max-w-md">
-                <Image src={r.paraQuem.imagem} alt="" width={900} height={600} className="aspect-[4/5] w-full -rotate-[3deg] rounded-[24px] object-cover shadow-2xl" />
+            <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+              {/* Ilustrações da home: notebook ao fundo, post e vídeo de anúncio à frente */}
+              <div data-revelar className="relative mx-auto aspect-[5/4] w-full max-w-xl" role="img" aria-label={r.paraQuem.ilustracoes.alt}>
+                <div aria-hidden="true" className="absolute inset-[8%] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgb(17 29 102 / 0.28), transparent 70%)' }} />
+                <div data-parallax="peca" data-velocidade="0.04" className="absolute top-[6%] left-[10%] w-[80%]">
+                  <Image src={r.paraQuem.ilustracoes.notebook} alt="" width={1100} height={757} sizes="(min-width: 1024px) 36vw, 80vw" className="h-auto w-full drop-shadow-[0_1.5rem_2.5rem_rgb(0_0_0/0.35)]" />
+                </div>
+                <div data-parallax="peca" data-velocidade="0.1" className="absolute bottom-0 left-0 w-[34%]">
+                  <Image src={r.paraQuem.ilustracoes.post} alt="" width={800} height={1001} sizes="(min-width: 1024px) 15vw, 34vw" className="h-auto w-full -rotate-[7deg] drop-shadow-[0_1.5rem_2rem_rgb(0_0_0/0.4)]" />
+                </div>
+                <div data-parallax="peca" data-velocidade="0.14" className="absolute right-0 bottom-[-4%] w-[30%]">
+                  <Image src={r.paraQuem.ilustracoes.video} alt="" width={720} height={1080} sizes="(min-width: 1024px) 13vw, 30vw" className="h-auto w-full rotate-[6deg] drop-shadow-[0_1.5rem_2rem_rgb(0_0_0/0.4)]" />
+                </div>
               </div>
-              <ul className="grid gap-5">
+              <ul className="grid gap-3">
                 {r.paraQuem.itens.map((it, i) => (
-                  <li key={it.titulo} data-revelar style={{ ['--atraso' as string]: `${i * 0.06}s` }} className="flex gap-4">
+                  <li
+                    key={it.titulo}
+                    data-revelar
+                    style={{ ['--atraso' as string]: `${i * 0.06}s` }}
+                    className="flex items-start gap-4 rounded-[var(--radius-cartao)] border border-linha-clara bg-branco p-4 shadow-[0_0.75rem_2rem_-1rem_rgb(17_29_102/0.25)] sm:p-5"
+                  >
                     <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-azul-plantao text-amarelo">
                       <Icone nome="check" className="size-5" />
                     </span>
                     <div>
                       <h3 className="font-[family-name:var(--font-titulo)] text-lg font-extrabold">{it.titulo}</h3>
-                      <p className="text-tinta-2">{it.texto}</p>
+                      <p className="mt-0.5 text-tinta-2">{it.texto}</p>
                     </div>
                   </li>
                 ))}

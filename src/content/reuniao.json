@@ -33,7 +33,12 @@
     "rotulo": "Esta reunião é para você",
     "titulo": "Para quem investe em marketing e sente que a venda não acompanha",
     "texto": "Se você se identifica com pelo menos uma destas situações, vale a conversa.",
-    "imagem": "/img/apartamentos-mar-900.webp",
+    "ilustracoes": {
+      "notebook": "/img/cases/vendebens-desktop.webp",
+      "post": "/img/thumb-post-vs.webp",
+      "video": "/img/thumb-anuncio-vc.webp",
+      "alt": "Exemplos de trabalhos da Led: site de imobiliária no notebook, post para feed e vídeo de anúncio no celular"
+    },
     "itens": [
       {
         "titulo": "Contato sem resposta",
