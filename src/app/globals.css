@@ -298,3 +298,6 @@ details[open]::details-content { block-size: auto; }
   background-image: radial-gradient(rgb(0 0 0 / 0.035) 1px, transparent 1px);
   background-size: 14px 14px;
 }
+
+/* Popup aberto (ex.: formulário do WhatsApp flutuante): a página de trás não rola */
+html:has(dialog[open]) { overflow: hidden; }

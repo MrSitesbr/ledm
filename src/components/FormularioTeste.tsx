@@ -30,7 +30,7 @@ export function montarMensagem(v: Valores, origem?: string) {
 }
 
 /** Não envia nada a servidor e não guarda dados: valida no navegador e abre o wa.me em nova aba. */
-export function FormularioTeste() {
+export function FormularioTeste({ textoBotao = comum.botaoPrincipal }: { textoBotao?: string } = {}) {
   const id = useId();
   const [v, setV] = useState<Valores>({ nome: '', whatsapp: '', empresa: '', tipo: '', cidade: '' });
   const [erros, setErros] = useState<Partial<Record<Campo, string>>>({});
@@ -142,7 +142,7 @@ export function FormularioTeste() {
       </div>
       <div>
         <button type="submit" className="botao botao-principal w-full">
-          <span>{comum.botaoPrincipal}</span>
+          <span>{textoBotao}</span>
           <Icone nome="arrow-right" />
         </button>
         <p className="mt-4 flex gap-2 text-sm text-sobre-azul-2">

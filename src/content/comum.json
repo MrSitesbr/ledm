@@ -80,6 +80,13 @@
     "contato": "Contato",
     "copyright": "© 2026 Led Marketing. CNPJ {cnpj}."
   },
+  "whatsappFlutuante": {
+    "botao": "Falar com a Led no WhatsApp",
+    "titulo": "Fale com a Led pelo WhatsApp",
+    "texto": "Preencha seus dados e o WhatsApp abre com a mensagem pronta para você enviar.",
+    "enviar": "Continuar no WhatsApp",
+    "fechar": "Fechar"
+  },
   "formulario": {
     "campos": {
       "nome": "Seu nome",

@@ -3,6 +3,7 @@ import comum from '@/content/comum.json';
 import { empresa, opcoes, whatsappLink } from '@/lib/dados';
 import { Logo } from './Logo';
 import { Icone } from './Icone';
+import { WhatsAppFlutuante } from './WhatsAppFlutuante';
 
 // Rodapé no azul mais escuro, no formato de painel arredondado do Aura (sem o nome gigante:
 // o briefing proíbe escrever LEDM com fonte para simular a logo).
@@ -22,6 +23,8 @@ export function Rodape({ minimo = false }: { minimo?: boolean }) {
   const linkClasse = 'inline-flex min-h-11 items-center text-sobre-azul-2 transition-colors hover:text-sobre-azul';
 
   return (
+    <>
+    <WhatsAppFlutuante />
     <footer className="container-site pb-6">
       <div
         className="rounded-[var(--radius-painel)] text-sobre-azul"
@@ -82,5 +85,6 @@ export function Rodape({ minimo = false }: { minimo?: boolean }) {
         </div>
       </div>
     </footer>
+    </>
   );
 }
